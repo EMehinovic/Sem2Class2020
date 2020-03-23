@@ -1,0 +1,15 @@
+# User input + varibles
+usr_str_input = ' '
+file_str_input = ' '
+occur = 0
+
+
+with open('/Users/elvisamehinovic/Downloads/All_Data.gene_info.txt') as fr:
+    fr = [line.split() for line in fr.read().splitlines()]
+
+    usr_str_input = input('Input ID Num:')
+    for file_str_input in fr:
+        if usr_str_input in file_str_input.split('\t'):
+            for usr_str_input in file_str_input:
+                occur += 1
+            print("There are", occur, "Genes ID's in this Tax ID")
