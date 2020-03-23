@@ -1,3 +1,7 @@
+#!/usr/bin/python
+
+import argparse
+
 # User input + varibles
 usr_str_input = ' '
 file_str_input = ' '
