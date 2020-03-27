@@ -7,8 +7,11 @@ usr_str_input = ' '
 file_str_input = ' '
 occur = 0
 
-
-with open('/Users/elvisamehinovic/Downloads/All_Data.gene_info.txt') as fr:
+parser = argparse.ArgumentParser()
+parser.add-argument('filename')
+args = parser.parse_args()
+with open(args.filename) as fr:
+    
     fr = [line.split() for line in fr.read().splitlines()]
 
     usr_str_input = input('Input ID Num:')
