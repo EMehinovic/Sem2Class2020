@@ -7,8 +7,8 @@ usr_str_input = ' '
 file_str_input = ' '
 occur = 0
 
-parser = argparse.ArgumentParser()
-parser.add-argument('filename')
+parser = argparse.ArgumentParser(description= 'genefiles')
+parser.add_argument('filename', help = ' Insert a File name', )
 args = parser.parse_args()
 with open(args.filename) as fr:
     
@@ -20,3 +20,4 @@ with open(args.filename) as fr:
             for usr_str_input in file_str_input:
                 occur += 1
             print("There are", occur, "Genes ID's in this Tax ID")
+
