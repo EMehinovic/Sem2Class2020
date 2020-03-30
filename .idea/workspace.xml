@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d7193bf-6074-403f-a7c2-e654a86cd868" name="Default Changelist" comment="" />
+    <list default="true" id="3d7193bf-6074-403f-a7c2-e654a86cd868" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/gene2" beforeDir="false" afterPath="$PROJECT_DIR$/gene2" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +16,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZEqveCcFGCzT3oeqnuYkpa2rwV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -93,6 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584414832750</updated>
       <workItem from="1584414844869" duration="30662000" />
+      <workItem from="1585596090028" duration="1379000" />
     </task>
     <servers />
   </component>
@@ -212,10 +219,18 @@
       <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state x="307" y="143" width="1013" height="588" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.829@0.23.1440.829" timestamp="1584491255533" />
+    <state x="618" y="286" key="com.intellij.ide.util.TipDialog" timestamp="1585596092037">
+      <screen x="0" y="23" width="1440" height="815" />
+    </state>
+    <state x="618" y="286" key="com.intellij.ide.util.TipDialog/0.23.1440.815@0.23.1440.815" timestamp="1585596092037" />
     <state x="309" y="179" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584583368184">
       <screen x="0" y="23" width="1440" height="803" />
     </state>
     <state x="309" y="179" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.803@0.23.1440.803" timestamp="1584583368184" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1585596155523">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585596155523" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/untitled$genecount.coverage" NAME="genecount Coverage Results" MODIFIED="1584493994023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

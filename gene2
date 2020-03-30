@@ -8,16 +8,17 @@ file_str_input = ' '
 occur = 0
 
 parser = argparse.ArgumentParser(description= 'genefiles')
-parser.add_argument('filename', help = ' Insert a File name', )
+parser.add_argument('filename', type = argparse.FileType('r'), help = 'Insert a File name' )
 args = parser.parse_args()
-with open(args.filename) as fr:
-    
-    fr = [line.split() for line in fr.read().splitlines()]
+print args.filename.readlines()
+# with open(args.filename) as infile:
 
-    usr_str_input = input('Input ID Num:')
-    for file_str_input in fr:
-        if usr_str_input in file_str_input.split('\t'):
-            for usr_str_input in file_str_input:
-                occur += 1
-            print("There are", occur, "Genes ID's in this Tax ID")
+# ln = infile.readlines()
+# print(ln)
+    # usr_str_input = input('Input ID Num:')
+    # for file_str_input in fr:
+    #     if usr_str_input in file_str_input.split('\t'):
+    #         for usr_str_input in file_str_input:
+    #             occur += 1
+    #         print("There are", occur, "Genes ID's in this Tax ID")
 
