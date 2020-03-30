@@ -3,18 +3,17 @@
 import argparse
 
 # User input + varibles
-usr_str_input = ' '
-file_str_input = ' '
 occur = 0
 
 parser = argparse.ArgumentParser(description= 'genefiles')
 parser.add_argument('filename', type = argparse.FileType('r'), help = 'Insert a File name' )
 args = parser.parse_args()
-print args.filename.readlines()
+# print args.filename.readlines()
 # with open(args.filename) as infile:
 
-# ln = infile.readlines()
-# print(ln)
+ln = args.filename.readline()
+
+print(ln)
     # usr_str_input = input('Input ID Num:')
     # for file_str_input in fr:
     #     if usr_str_input in file_str_input.split('\t'):
