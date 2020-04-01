@@ -3,8 +3,8 @@
 import argparse
 
 # User input + varibles
-occur = 0
-#File arguments
+# occur = 0
+# #File arguments
 parser = argparse.ArgumentParser(description= 'genefiles')
 parser.add_argument('filename', type = argparse.FileType('r'), help = 'Insert a File name' )
 args = parser.parse_args()
@@ -14,11 +14,13 @@ args = parser.parse_args()
 
 ln = args.filename.readline().split('\t')
 
-# print(ln)
+print(ln)
 
 #TaxID Argument:: Error:'est supplied twice for positional argument
-parser.add_argument('TaxID', type = int, action='append', dest = 'Tax_ID', const='Values_2_Append', default = 0, help = 'Add ID Values')
-results = parser.parse_args(ln)
+parser = argparse.ArgumentParser(description='TaxID')
+parser.add_argument('numberInput', type=int, nargs='+', help='an integer for TaxID')
+parser.add_argument('TaxID', type = int, action='append', nargs='?', const='Values_2_Append', default = 0, help = 'Add ID Values')
+results = parser.parse_args()
 print('Tax_ID = {!r}'.format(results.Tax_ID))
 
     # usr_str_input = input('Input ID Num:')
