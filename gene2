@@ -7,23 +7,25 @@ import argparse
 # #File arguments
 parser = argparse.ArgumentParser(description= 'genefiles')
 parser.add_argument('filename', type = argparse.FileType('r'), help = 'Insert a File name' )
+parser.add_argument('-TaxID', required=True, type = int, nargs='+', action='store', dest='TaxIDs', help = 'Add ID Values')
 args = parser.parse_args()
 
 # print args.filename.readlines()
 # with open(args.filename) as infile:
+#print('TaxIDs = {!r}'.format(args.TaxIDs))
+
+print (args.TaxIDs)
 
 ln = args.filename.readline().split('\t')
 
 print(ln)
 
 #TaxID Argument:: Error: error: argument numberInput: invalid int value: 'All_Data.gene_info'
-parser = argparse.ArgumentParser(description='TaxID')
-parser.add_argument('numberInput', type=int, nargs='+', help='an integer for TaxID')
-parser.add_argument('TaxID', type = int, action='append', nargs='?', const='Values_2_Append', default = 0, help = 'Add ID Values')
-results = parser.parse_args()
-print('Tax_ID = {!r}'.format(results.Tax_ID))
+# parser = argparse.ArgumentParser(description='TaxID')
+# parser.add_argument('numberInput', type=int, nargs='+', help='an integer for TaxID')
+# results = parser.parse_args()
 
-    # usr_str_input = input('Input ID Num:')
+    # usr_sftp://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/All_Data.gene_info.gztr_input = input('Input ID Num:')
     # for file_str_input in fr:
     #     if usr_str_input in file_str_input.split('\t'):
     #         for usr_str_input in file_str_input:
