@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d7193bf-6074-403f-a7c2-e654a86cd868" name="Default Changelist" comment="0/01/2020v2">
+    <list default="true" id="3d7193bf-6074-403f-a7c2-e654a86cd868" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gene2" beforeDir="false" afterPath="$PROJECT_DIR$/gene2" afterDir="false" />
     </list>
@@ -102,7 +105,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584414832750</updated>
       <workItem from="1584414844869" duration="30662000" />
-      <workItem from="1585596090028" duration="10548000" />
+      <workItem from="1585596090028" duration="7029000" />
     </task>
     <task id="LOCAL-00001" summary="03/30/2020">
       <created>1585597712782</created>
@@ -125,21 +128,7 @@
       <option name="project" value="LOCAL" />
       <updated>1585706943632</updated>
     </task>
-    <task id="LOCAL-00004" summary="03/01/2020v1">
-      <created>1585757771877</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1585757771877</updated>
-    </task>
-    <task id="LOCAL-00005" summary="03/01/2020v2">
-      <created>1585757840134</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1585757840134</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,9 +138,7 @@
     <MESSAGE value="03/30/2020" />
     <MESSAGE value="03/30/2020 pt2" />
     <MESSAGE value="03/31/2020" />
-    <MESSAGE value="03/01/2020v1" />
-    <MESSAGE value="03/01/2020v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="03/01/2020v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="03/31/2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="553" y="247" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584417715304">
@@ -162,11 +149,11 @@
       <screen x="0" y="23" width="1440" height="830" />
     </state>
     <state x="804" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.830@0.23.1440.830" timestamp="1584485625239" />
-    <state x="309" y="41" key="CommitChangelistDialog2" timestamp="1585758977224">
+    <state x="309" y="41" key="CommitChangelistDialog2" timestamp="1585757771666">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="309" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585598564060" />
-    <state x="309" y="41" key="CommitChangelistDialog2/0.23.1440.813@0.23.1440.813" timestamp="1585758977224" />
+    <state x="309" y="41" key="CommitChangelistDialog2/0.23.1440.813@0.23.1440.813" timestamp="1585757771666" />
     <state width="779" height="201" key="GridCell.Tab.0.bottom" timestamp="1585757722322">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
@@ -271,11 +258,11 @@
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="0" y="80" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1585756861252" />
-    <state x="320" y="195" key="Vcs.Push.Dialog.v2" timestamp="1585757845887">
+    <state x="320" y="195" key="Vcs.Push.Dialog.v2" timestamp="1585757783486">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585598574737" />
-    <state x="320" y="195" key="Vcs.Push.Dialog.v2/0.23.1440.813@0.23.1440.813" timestamp="1585757845887" />
+    <state x="320" y="195" key="Vcs.Push.Dialog.v2/0.23.1440.813@0.23.1440.813" timestamp="1585757783486" />
     <state x="120" y="143" width="1200" height="588" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1584415411806">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
@@ -292,10 +279,6 @@
       <screen x="0" y="23" width="1440" height="803" />
     </state>
     <state x="309" y="179" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.803@0.23.1440.803" timestamp="1584583368184" />
-    <state x="112" y="239" key="git4idea.merge.GitPullDialog" timestamp="1585838664668">
-      <screen x="0" y="23" width="1440" height="812" />
-    </state>
-    <state x="112" y="239" key="git4idea.merge.GitPullDialog/0.23.1440.812@0.23.1440.812" timestamp="1585838664668" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1585596155523">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
