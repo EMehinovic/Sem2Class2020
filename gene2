@@ -2,31 +2,51 @@
 
 import argparse
 
-# User input + varibles
-# occur = 0
 # #File arguments
-parser = argparse.ArgumentParser(description= 'genefiles')
-parser.add_argument('filename', type = argparse.FileType('r'), help = 'Insert a File name' )
+parser = argparse.ArgumentParser(description='genefiles')
+parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
+parser.add_argument('-TaxID', required=True, type=int, nargs='+', action='store', dest='TaxIDs', help='Add ID Values')
+# start of count code
+parser.add_argument('-count', 'countNum', help='count number to be specified', type='count_valid', default=0)
 args = parser.parse_args()
 
 # print args.filename.readlines()
 # with open(args.filename) as infile:
-
+# print('TaxIDs = {!r}'.format(args.TaxIDs))
+print(args.TaxIDs)
 ln = args.filename.readline().split('\t')
 
 print(ln)
 
-#TaxID Argument:: Error: error: argument numberInput: invalid int value: 'All_Data.gene_info'
-parser = argparse.ArgumentParser(description='TaxID')
-parser.add_argument('numberInput', type=int, nargs='+', help='an integer for TaxID')
-parser.add_argument('TaxID', type = int, action='append', nargs='?', const='Values_2_Append', default = 0, help = 'Add ID Values')
-results = parser.parse_args()
-print('Tax_ID = {!r}'.format(results.Tax_ID))
 
-    # usr_str_input = input('Input ID Num:')
-    # for file_str_input in fr:
-    #     if usr_str_input in file_str_input.split('\t'):
-    #         for usr_str_input in file_str_input:
-    #             occur += 1
-    #         print("There are", occur, "Genes ID's in this Tax ID")
+# -04/03/20: Def count
+def count_valid(countNum):
+    num = int(countNum)
+    if num < 1:
+        raise argparse.ArgumentTypeError('There Are No Genes Related To This Number')
+    return num
 
+
+def int(TaxID):
+    if (len(TaxID) < 1):
+        raise argparse.ArgumentTypeError('You Must Enter A Number:')
+    return TaxID
+# Attempt To loop
+# for input in args.TaxID:
+#   for x in re.findall(TaxIds.get(input), ln):
+#       results.append(x)
+
+
+# ------------------04/02/2020---------------------------------
+# TaxID Argument:: Error: error: argument numberInput: invalid int value: 'All_Data.gene_info'
+# parser = argparse.ArgumentParser(description='TaxID')
+# parser.add_argument('numberInput', type=int, nargs='+', help='an integer for TaxID')
+# results = parser.parse_args()
+
+
+# usr_str_input = input('Input ID Num:')
+# for file_str_input in fr:
+#     if usr_str_input in file_str_input.split('\t'):
+#         for usr_str_input in file_str_input:
+#             occur += 1
+#         print("There are", occur, "Genes ID's in this Tax ID")
