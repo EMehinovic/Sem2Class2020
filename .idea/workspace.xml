@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d7193bf-6074-403f-a7c2-e654a86cd868" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gene2" beforeDir="false" afterPath="$PROJECT_DIR$/gene2" afterDir="false" />
-    </list>
+    <list default="true" id="3d7193bf-6074-403f-a7c2-e654a86cd868" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,11 +143,12 @@
       <screen x="0" y="23" width="1440" height="830" />
     </state>
     <state x="804" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.830@0.23.1440.830" timestamp="1584485625239" />
-    <state x="309" y="41" key="CommitChangelistDialog2" timestamp="1585757771666">
-      <screen x="0" y="23" width="1440" height="813" />
+    <state x="309" y="41" key="CommitChangelistDialog2" timestamp="1585882980794">
+      <screen x="0" y="23" width="1440" height="825" />
     </state>
     <state x="309" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585598564060" />
     <state x="309" y="41" key="CommitChangelistDialog2/0.23.1440.813@0.23.1440.813" timestamp="1585757771666" />
+    <state x="309" y="41" key="CommitChangelistDialog2/0.23.1440.825@0.23.1440.825" timestamp="1585882980794" />
     <state width="779" height="201" key="GridCell.Tab.0.bottom" timestamp="1585757722322">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
@@ -258,11 +253,12 @@
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="0" y="80" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1585756861252" />
-    <state x="320" y="195" key="Vcs.Push.Dialog.v2" timestamp="1585757783486">
-      <screen x="0" y="23" width="1440" height="813" />
+    <state x="320" y="198" key="Vcs.Push.Dialog.v2" timestamp="1585882987922">
+      <screen x="0" y="23" width="1440" height="825" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585598574737" />
     <state x="320" y="195" key="Vcs.Push.Dialog.v2/0.23.1440.813@0.23.1440.813" timestamp="1585757783486" />
+    <state x="320" y="198" key="Vcs.Push.Dialog.v2/0.23.1440.825@0.23.1440.825" timestamp="1585882987922" />
     <state x="120" y="143" width="1200" height="588" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1584415411806">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
