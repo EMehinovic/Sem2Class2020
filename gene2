@@ -1,36 +1,50 @@
 #!/usr/bin/python
 
 import argparse
+#Dictionary
 
-# #File arguments
+dictionary = {'TaxID': 1, 'Synonyms': 2 }
+dictionary['view'] = dictionary.get('view', 0) + 1
+print("Dictionary with +1 increment key:", dictionary.get('TaxId'), dictionary.get('Synonyms'))
+
+#File arguments
 parser = argparse.ArgumentParser(description='genefiles')
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
 parser.add_argument('-TaxID', required=True, type=int, nargs='+', action='store', dest='TaxIDs', help='Add ID Values')
-# start of count code
-parser.add_argument('-count', 'countNum', help='count number to be specified', type='count_valid', default=0)
-args = parser.parse_args()
 
+
+# start of count code
+
+args = parser.parse_args()
+#Define V.
+countNum = 0
 # print args.filename.readlines()
 # with open(args.filename) as infile:
 # print('TaxIDs = {!r}'.format(args.TaxIDs))
 print(args.TaxIDs)
+
 ln = args.filename.readline().split('\t')
+def getVarFromFile(ln):
+    import imp
+
 
 print(ln)
+
 
 
 # -04/03/20: Def count
 def count_valid(countNum):
     num = int(countNum)
-    if num < 1:
-        raise argparse.ArgumentTypeError('There Are No Genes Related To This Number')
-    return num
+    if num < 1
 
 
 def int(TaxID):
     if (len(TaxID) < 1):
         raise argparse.ArgumentTypeError('You Must Enter A Number:')
     return TaxID
+
+
+
 # Attempt To loop
 # for input in args.TaxID:
 #   for x in re.findall(TaxIds.get(input), ln):
