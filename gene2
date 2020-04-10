@@ -1,66 +1,101 @@
 #!/usr/bin/python
 
 import argparse
-#Dictionary
 
-dictionary = {'TaxID': 1, 'Synonyms': 2 }
-dictionary['view'] = dictionary.get('view', 0) + 1
-print("Dictionary with +1 increment key:", dictionary.get('TaxId'), dictionary.get('Synonyms'))
-
-#File arguments
 parser = argparse.ArgumentParser(description='genefiles')
+
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
-parser.add_argument('-TaxID', required=True, type=int, nargs='+', action='store', dest='TaxIDs', help='Add ID Values')
-
-
-# start of count code
-
+parser.add_argument('-t', '--TaxID', type=str, nargs='+', action='store', required='true', help='Add ID Values')
 args = parser.parse_args()
-#Define V.
-countNum = 0
-# print args.filename.readlines()
-# with open(args.filename) as infile:
-# print('TaxIDs = {!r}'.format(args.TaxIDs))
-print(args.TaxIDs)
+
+#Dictionary
+d2 = {'Synonyms': 1}
+d = vars(args)
+d.update(d2)
+print(d)
+
+
+# print(args.TaxIdList)
 
 ln = args.filename.readline().split('\t')
-def getVarFromFile(ln):
-    import imp
+
+# for TaxId in d:
+#     if TaxId in ln:
+#         d[TaxId] = d[TaxId] + 1
+#     else:
+#         d[TaxId]=1
+# print(d)
+
+count=ln.count(TaxID)
+for TaxID in ln:
+    count +=1
+print(count)
 
 
-print(ln)
+
+
+
+#     print( args.TaxID)
+# #print(ln)
+# # print(input)
+
+
 
 
 
 # -04/03/20: Def count
-def count_valid(countNum):
-    num = int(countNum)
-    if num < 1
+#
+# def count_char(ln):
+#     countNum= 0
+#     for TaxIdList in ln:
+#         if (TaxIdList in ln):
+#             countNum[TaxIdList] +=1
+#         else:
+#             countNum[TaxIdList] = 1
+#     return countNum
+# #
+# # #     for args.TaxID in ln:
+# # #         countNum = 0
+# # #         if args.TaxID in ln:
+# #             countNum +=1
+# #         else:
+# #             return "ID Not Found"
+#
 
-
-def int(TaxID):
-    if (len(TaxID) < 1):
-        raise argparse.ArgumentTypeError('You Must Enter A Number:')
-    return TaxID
-
-
-
-# Attempt To loop
-# for input in args.TaxID:
-#   for x in re.findall(TaxIds.get(input), ln):
-#       results.append(x)
-
-
-# ------------------04/02/2020---------------------------------
-# TaxID Argument:: Error: error: argument numberInput: invalid int value: 'All_Data.gene_info'
-# parser = argparse.ArgumentParser(description='TaxID')
-# parser.add_argument('numberInput', type=int, nargs='+', help='an integer for TaxID')
-# results = parser.parse_args()
-
-
-# usr_str_input = input('Input ID Num:')
-# for file_str_input in fr:
-#     if usr_str_input in file_str_input.split('\t'):
-#         for usr_str_input in file_str_input:
-#             occur += 1
-#         print("There are", occur, "Genes ID's in this Tax ID")
+#
+#
+#
+#
+# # len(set(open(yourdictfile).read().split()))
+# #
+#     # for input in args.TaxID:
+#     #     for x in (TaxID.get(input), ln):
+#     # if x in TaxID:
+#     #     if x == 0:
+#     #         count +=1
+#     # return count
+# # print(count_char(input, "r"))
+#
+#
+#
+#
+#
+#
+#
+#
+# # ------------------04/02/2020---------------------------------
+# # TaxID Argument:: Error: error: argument numberInput: invalid int value: 'All_Data.gene_info'
+# # parser = argparse.ArgumentParser(description='TaxID')
+# # parser.add_argument('numberInput', type=int, nargs='+', help='an integer for TaxID')
+# # results = parser.parse_args()
+#
+#
+# # usr_str_input = input('Input ID Num:')
+# # for file_str_input in fr:
+# #     if usr_str_input in file_str_input.split('\t'):
+# #         for usr_str_input in file_str_input:
+# #             occur += 1
+# #         print("There are", occur, "Genes ID's in this Tax ID")
+# # print args.filename.readlines()
+# with open(args.filename) as infile:
+# print('TaxIDs = {!r}'.format(args.TaxIDs))
