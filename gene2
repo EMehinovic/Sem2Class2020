@@ -7,15 +7,22 @@ count=0
 parser = argparse.ArgumentParser(description='genefiles')
 
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
-parser.add_argument('-t', '--TaxID', type=int, nargs='+', action='store', required='true', dest='inputID', help='Add ID Values')
+parser.add_argument('-t', '--TaxID', type=int, nargs='+', action='store', required='true', dest='TAXID', help='Add ID Values')
 args = parser.parse_args()
-print(args.inputID)
+print(args.TAXID)
 
 
 
+for ln in args.filename:
+    lnsplit = ln.split("\t")
+    # print(ln)
+    # print(ln[0])
 
-# ln = args.filename.readline().split("\t")
-# print(ln)
+    if lnsplit[0] in args.TAXID:
+        print (True)
+    else:
+        print(False)
+
 # #
 # # #Dictionary
 #
@@ -42,20 +49,21 @@ else:
 #     TaxIdCount.append((ln.count(TaxIDs)))
 # print(sum(TaxIdCount))
 
-for ln in args.filename.readlines().split(' '):
-print(ln)
+# for ln in args.filename.readlines().split('\t'):
+# print(ln)
 
 # for input in args.TaxID:
 #     input = vars(args.TaxID)
 #     print(input)
-def inputID():
-    atlTaxId=0
-    for inputID in ln:
-        count =0
-        if inputID in ln:
-            count+=1
-            print(count)
-# k=0
+# def inputID():
+#     atlTaxId=0
+#     for inputID in ln:
+#         count =0
+#         if inputID in ln:
+#             re.serach(inputID)
+#             count+=1
+#             print(count)
+# # k=0
 #
 # if inputID in ln:
 #     k=k+1
