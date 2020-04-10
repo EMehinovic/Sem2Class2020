@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import argparse
+from fileinput import filename
 
 parser = argparse.ArgumentParser(description='genefiles')
 
@@ -17,19 +18,17 @@ print(d)
 
 # print(args.TaxIdList)
 
-ln = args.filename.readline().split('\t')
+ln = args.filename.read().splitlines('\t')
 
-# for TaxId in d:
-#     if TaxId in ln:
-#         d[TaxId] = d[TaxId] + 1
-#     else:
-#         d[TaxId]=1
-# print(d)
-
-count=ln.count(TaxID)
+count = 0
 for TaxID in ln:
-    count +=1
+
+    count += 1
+ln.readline().split
+
 print(count)
+
+
 
 
 
@@ -68,14 +67,7 @@ print(count)
 #
 # # len(set(open(yourdictfile).read().split()))
 # #
-#     # for input in args.TaxID:
-#     #     for x in (TaxID.get(input), ln):
-#     # if x in TaxID:
-#     #     if x == 0:
-#     #         count +=1
-#     # return count
-# # print(count_char(input, "r"))
-#
+
 #
 #
 #
