@@ -11,7 +11,27 @@ parser.add_argument('-t', '--TaxID', type=int, nargs='+', action='store', requir
 args = parser.parse_args()
 print(args.inputID)
 
+# TODO: 1) Loop through the input file line by line
 
+# TODO: 2) for the current line get the current Tax_id, Symbol, Synonyms and GeneID into variables
+
+# TODO: 3) Test if the tax_id for this line is in the list input from the command line by the user
+#   If so do 4 and 5
+#   else next line
+
+# TODO: 4)
+#   Check to see if we have seen the Symbol before
+#   if not add it to the Symbol dictionary, if so increment its count
+
+# TODO: 5)
+#   for each Synonym
+#   Check to see if we have seen the Synonyms before
+#   if not add it to the Synonym dictionary, if so increment its count
+
+# TODO: 6)
+#   After all lines of the file have been processed, report on the Symbols and the Synonyms
+#   How many are unique?
+#   How many are present more than once?
 
 
 # ln = args.filename.readline().split("\t")
