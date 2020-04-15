@@ -74,10 +74,14 @@ if tax_id in args.TAXID:
 # #
 # # #Dictionary
 #
-d2 = {'Synonyms': 1, 'TaxIdCount':1}
-d = vars(args)
-d.update(d2)
-print(d)
+
+# if currnet taxID is in the tqaxIDdict
+# increment the value of the element keyed at aers.taxID
+# something like: taxIDdict{args.taxID}++
+# else initalise
+# taxIDdict = {args.taxID: 1}
+
+
 
 # #
 #
