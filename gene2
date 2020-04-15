@@ -32,7 +32,7 @@ print(args.TAXID)
 #   After all lines of the file have been processed, report on the Symbols and the Synonyms
 #   How many are unique?
 #   How many are present more than once?
-
+tcount=0
 for ln in args.filename:
     lnsplit = ln.strip("\t").split("\t")
     tax_id=lnsplit[0]
@@ -40,11 +40,24 @@ for ln in args.filename:
     Symbol=lnsplit[2]
     Synonyms=lnsplit[4]
 
-    if tax_id in args.TAXID:
-        print (True)
-        print('TaxId:' + tax_id , 'GeneID:' + GeneID, 'Symbol:' + Symbol,'Synonyms:' + Synonyms)
-    else:
-        print(False)
+count=0
+
+if tax_id in args.TAXID:
+    lst=tax_id.readline()
+
+    for args.TAXID in lst:
+        if args.TAXID in lst:
+            count=count+1
+
+        lst.close()
+        print(count)
+
+            # print(format(tcount))
+    print('TaxId:' + tax_id , 'GeneID:' + GeneID, 'Symbol:' + Symbol,'Synonyms:' + Synonyms)
+
+
+    # else :
+    #     print(False)
 
 
 
