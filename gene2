@@ -7,7 +7,7 @@ count=0
 parser = argparse.ArgumentParser(description='genefiles')
 
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
-parser.add_argument('-t', '--TaxID', type=int, nargs='+', action='store', required='true', dest='TAXID', help='Add ID Values')
+parser.add_argument('-t', '--TaxID', type=str, nargs='+', action='store', required='true', dest='TAXID', help='Add ID Values')
 args = parser.parse_args()
 print(args.TAXID)
 
@@ -34,14 +34,20 @@ print(args.TAXID)
 #   How many are present more than once?
 
 for ln in args.filename:
-    lnsplit = ln.split("\t")
-    # print(ln)
-    # print(ln[0])
+    lnsplit = ln.strip("\t").split("\t")
+    tax_id=lnsplit[0]
+    GeneID=lnsplit[1]
+    Symbol=lnsplit[2]
+    Synonyms=lnsplit[4]
 
-    if lnsplit[0] in args.TAXID:
+    if tax_id in args.TAXID:
         print (True)
+        print('TaxId:' + tax_id , 'GeneID:' + GeneID, 'Symbol:' + Symbol,'Synonyms:' + Synonyms)
     else:
         print(False)
+
+
+
 
 # #
 # # #Dictionary
