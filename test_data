@@ -1,0 +1,20 @@
+9	1246500	repA1	pLeuDn_01	-	-	-	-	putative replication-associated protein	protein-coding	-	-	-	-	20180129	-
+9	1246501	repA2	pLeuDn_03	-	-	-	-	putative replication-associated protein	protein-coding	-	-	-	-	20180129	-
+9	1246502	leuA	pLeuDn_04	-	-	-	-	2-isopropylmalate synthase	protein-coding	-	-	-	-	20180129	-
+9	1246503	leuB	pLeuDn_05	-	-	-	-	3-isopropylmalate dehydrogenase	protein-coding	-	-	-	-	20180129	-
+9	1246504	leuC	pLeuDn_06	-	-	-	-	isopropylmalate isomerase large subunit	protein-coding	-	-	-	-	20180129	-
+9	1246505	leuD	pLeuDn_07	-	-	-	-	isopropylmalate isomerase small subunit	protein-coding	-	-	-	-	20180129	-
+9	1246509	ibp	pBPS1_01	-	-	-	-	Ibp protein	protein-coding	-	-	-	-	20180129	-
+9	1246510	repA1	pBPS1_02	-	-	-	-	repA1 protein	protein-coding	-	-	-	-	20180129	-
+9	2827857	NEWENTRY	-	-	-	-	-	Record to support submission of GeneRIFs for a gene not in Gene (Use when strain, subtype, isolate, etc. is unspecified, or when different from all specified ones in Gene.).	other	-	-	-	-	20160921	-
+9	3722426	pLeuDn_02	pLeuDn_02	-	-	-	-	ORF1	protein-coding	-	-	-	ORF1|hypothetical protein	20180129	-
+4577	541612	LOC541612	ZEAMMB73_Zm00001d038291	FDX6|GRMZM2G106190|pco072676(750)	-	6	-	Ferredoxin-6, chloroplastic	protein-coding	-	-	-	ferredoxin-6, chloroplastic|Fd VI|ferredoxin VI	20190603	-
+4577	541613	LOC541613	ZEAMMB73_Zm00001d001865	GRMZM2G040736|RR11|crr1	-	2	-	cytokinin response regulator 1	protein-coding	-	-	-	cytokinin response regulator 1|RR6 - Corn type-A response regulator|ZmCip1, cytokinin-inducible protein|cip1|cytokinin response regulator 11|response regulator|uaz242|umc1622	20190802	-
+4577	541614	LOC541614	ZEAMMB73_Zm00001d013048	GRMZM2G108225|sqs1	-	5	-	squalene synthase 1	protein-coding	-	-	-	squalene synthase 1|PCO094214|PCO094214(99)|ZmSS-4|squalene synthase1	20190802	-
+4577	541615	LOC541615	ZEAMMB73_Zm00001d027854	GRMZM2G034302|sut1|umc2347	-	1	-	sucrose transporter 1	protein-coding	-	-	-	sucrose transporter 1|PCO103031|QAT3g07|gpm403a	20190802	-
+4577	541617	LOC541617	ZEAMMB73_Zm00001d018183	GRMZM2G152827	-	5	-	mitochondrial phosphate transporter	protein-coding	-	-	-	mitochondrial phosphate transporter|mitochondrial phosphate transporter1|phosphate transporter	20190721	-
+4577	541618	LOC541618	ZEAMMB73_Zm00001d045310	GRMZM2G020216|MAPK|MPK5|ZmMPK5|mpk2	-	9	-	MAP kinase 2	protein-coding	-	-	-	MAP kinase 2|MAP kinase 5|MAP kinase2|MPK6 - putative MAPK|PCO143674|PCO143674(662)|PCO143674b|putative MAP kinase family protein	20190603	-
+4577	541619	LOC541619	ZEAMMB73_Zm00001d035003	GRMZM2G048313|fdx2	-	6	-	ferredoxin 2	protein-coding	-	-	-	ferredoxin-2, chloroplastic|Fd II|Ferredoxin II|Ferredoxin-2, chloroplastic|chloroplast ferredoxin 2|ferredoxin-1|ferredoxin2|umc1002|umc1023	20190603	-
+4577	541620	LOC541620	ZEAMMB73_Zm00001d026160	GR1a|GRMZM2G429000|gar2	-	10	-	GR1a protein	protein-coding	-	-	-	GR1a protein|ZmGR1a|ZmGR1b|cortical cell-delineating protein|gibberellin responsive 2	20190603	-
+4577	541622	LOC541622	ZEAMMB73_Zm00001d028471	GRMZM2G001696	-	1	-	phosphoenolpyruvate carboxykinase	protein-coding	-	-	-	phosphoenolpyruvate carboxykinase (ATP)|PEP carboxykinase|PEPCK|phosphoenolpyruvate carboxykinase1|phosphoenolpyruvate carboxylase	20190726	-
+4577	541623	LOC541623	ZEAMMB73_Zm00001d041984	GRMZM2G097316|RCP1|ZmRCP1	-	3	-	root cap protein 1	protein-coding	-	-	-	root cap protein 1|root-cap periphery1	20190603	-
