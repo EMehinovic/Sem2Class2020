@@ -7,7 +7,7 @@ count=0
 parser = argparse.ArgumentParser(description='genefiles')
 
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
-parser.add_argument('-t', '--TaxID', type=str, nargs='+', action='store', required='true', dest='TAXID', help='Add ID Values')
+parser.add_argument('-t', '--TaxID', type=str, nargs='*', action='store', required='true', dest='TAXID', help='Add ID Values')
 args = parser.parse_args()
 print(args.TAXID)
 
@@ -40,60 +40,57 @@ print(args.TAXID)
 # TODO: 7)
 #   How many are unique?
 #   How many are present more than once?
-
-tcount=0
+num=0
+count=0
 for ln in args.filename:
+
     lnsplit = ln.strip("\t").split("\t")
     tax_id=lnsplit[0]
     GeneID=lnsplit[1]
     Symbol=lnsplit[2]
     Synonyms=lnsplit[4]
 
-count=0
 
-if tax_id in args.TAXID:
-    lst=tax_id
-
-    for args.TAXID in lst:
-        if args.TAXID in lst:
-            count=count+1
-
-        print(count)
-
-            # print(format(tcount))
-    print('TaxId:' + tax_id , 'GeneID:' + GeneID, 'Symbol:' + Symbol,'Synonyms:' + Synonyms)
-
-
-    # else :
-    #     print(False)
-
-
-
-
-# #
-# # #Dictionary
+#     for args.TAXID in lst:
+#         if args.TAXID in lst:
 #
+#             taxIDdict[args.TAXID]+=1
+#         else:
+#             taxIDdict[args.TAXID]=0
+#         print (taxIDdict)
 
-# if currnet taxID is in the tqaxIDdict
-# increment the value of the element keyed at aers.taxID
-# something like: taxIDdict{args.taxID}++
-# else initalise
-# taxIDdict = {args.taxID: 1}
+    if tax_id in args.TAXID:
+        count += 1
+
+        print(True)
+
+    else:
+        count+=0
 
 
-# # d.update(d1)
+#         # print(count)
+#
+#             # print(format(tcount))
+#     print('TaxId:' + tax_id , 'GeneID:' + GeneID, 'Symbol:' + Symbol,'Synonyms:' + Synonyms)
+
+# print(taxIDdict)
 #TaxID Dictionary
-taxIDdict = {args.TAXID: 1}
-if args.TAXID in tax_id:
-    taxIDdict[args.TAXID]=taxIDdict.get(args.TAXID,0)+1
-    if not args.TAXID in tax_id:
-        taxIDdict[args.TAXID]=1
+a = int(args.TAXID)
+taxIDdict = {a,0}
+# taxIDdict = {tuple([args.TAXID]):0}
+for tax_id in a:
+    count+=1
+    if tax_id in a:
+        taxIDdict[a]+=1
+    else:
+        taxIDdict[a]=0
+
 print (taxIDdict)
 
 #Synonyms Dictionary
 Syndict = {}
-if args.TAXID in ln: #should it be ln or tax_id?
-    for Synonyms in ln:
+if tax_id in args.TAXID:
+    for Synonyms in tax_id:
         Synonyms = Synonyms.split('|')
 
         for Synonymname in Synonyms:
@@ -105,13 +102,13 @@ print(Syndict)
 
 #Symbol Dictionary
 Symboldict={}
-if args.TAXID in ln:
-    for Symbol in ln:
-        for SymbolID in Symbol:
-            if SymbolID in Symboldict:
-                Symboldict[SymbolID] = Symboldict[SymbolID] + 1
-        else:
-            Symboldict[SymbolID]=1
+
+
+for SymbolID in Symbol:
+    if SymbolID in Symboldict:
+        Symboldict[SymbolID] = Symboldict[SymbolID] + 1
+    else:
+        Symboldict[SymbolID]=1
 
 print(Syndict)
 
@@ -119,3 +116,8 @@ print(Syndict)
 maindict = {}
 # maindict.update(taxIDdict,Syndict,Symboldict)
 # print(maindict)
+# if currnet taxID is in the tqaxIDdict
+# increment the value of the element keyed at aers.taxID
+# something like: taxIDdict{args.taxID}++
+# else initalise
+# taxIDdict = {args.taxID: 1}
