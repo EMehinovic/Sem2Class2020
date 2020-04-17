@@ -9,7 +9,6 @@ parser = argparse.ArgumentParser(description='genefiles')
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
 parser.add_argument('-t', '--TaxID', type=str, nargs='*', action='store', required='true', dest='TAXID', help='Add ID Values')
 args = parser.parse_args()
-print(args.TAXID)
 
 # TODO: 1) Loop through the input file line by line
 
@@ -42,6 +41,7 @@ print(args.TAXID)
 #   How many are present more than once?
 num=0
 count=0
+taxIDdict = {}
 for ln in args.filename:
 
     lnsplit = ln.strip("\t").split("\t")
@@ -50,22 +50,28 @@ for ln in args.filename:
     Symbol=lnsplit[2]
     Synonyms=lnsplit[4]
 
+print (tax_id)
+print (type (tax_id))
 
-#     for args.TAXID in lst:
-#         if args.TAXID in lst:
-#
-#             taxIDdict[args.TAXID]+=1
-#         else:
-#             taxIDdict[args.TAXID]=0
-#         print (taxIDdict)
 
-    if tax_id in args.TAXID:
-        count += 1
+#    for args.TAXID in lst:
+if tax_id in args.TAXID:
 
-        print(True)
+    if tax_id in taxIDdict.keys():
+        taxIDdict[tax_id] += 1
 
     else:
-        count+=0
+        taxIDdict[tax_id]=1
+
+print (taxIDdict)
+
+if tax_id in args.TAXID:
+    count += 1
+
+    print(True)
+
+else:
+    count+=0
 
 
 #         # print(count)
@@ -75,17 +81,17 @@ for ln in args.filename:
 
 # print(taxIDdict)
 #TaxID Dictionary
-a = int(args.TAXID)
-taxIDdict = {a,0}
-# taxIDdict = {tuple([args.TAXID]):0}
-for tax_id in a:
-    count+=1
-    if tax_id in a:
-        taxIDdict[a]+=1
-    else:
-        taxIDdict[a]=0
-
-print (taxIDdict)
+# a = int(args.TAXID)
+# taxIDdict = {a,0}
+# # taxIDdict = {tuple([args.TAXID]):0}
+# for tax_id in a:
+#     count+=1
+#     if tax_id in a:
+#         taxIDdict[a]+=1
+#     else:
+#         taxIDdict[a]=0
+#
+# print (taxIDdict)
 
 #Synonyms Dictionary
 Syndict = {}
