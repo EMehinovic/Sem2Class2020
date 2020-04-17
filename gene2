@@ -10,40 +10,16 @@ parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File
 parser.add_argument('-t', '--TaxID', type=str, nargs='*', action='store', required='true', dest='TAXID', help='Add ID Values')
 args = parser.parse_args()
 
-# TODO: 1) Loop through the input file line by line
-
-# TODO: 2) for the current line get the current Tax_id, Symbol, Synonyms and GeneID into variables
-#   parse synonyms delimited by '|" to a list
-
-# TODO: 3) Test if the tax_id for this line is in the list input from the command line by the user
-#   If so do 4 and 5
-#   else next line
-#   increment taxID dictionary, key = ignored
-
-# TODO: 4)
-#   increment taxID dictionary
-#   Check to see if we have seen the Symbol before in the Symbol dictionary
-#   if not add it to the Symbol dictionary and set count to 1, if so increment its count
-
-# TODO: 5)
-#   for each Synonym
-#   Check to see if we have seen the Synonyms before in the Synonym dictionary
-#   if not add it to the Synonym dictionary and set count to 1, if so increment its count
-
-# TODO: 6)
-#   After all lines of the file have been processed, report on the Symbols and the Synonyms
-#   how may total entries in taxID dictionary, how many for each taxID and "ignored"
-#   how many total symbols and
-#   how many total synonyms
-
-# TODO: 7)
-#   How many are unique?
-#   How many are present more than once?
-num=0
-count=0
+# Define variables
 taxIDdict = {}
-for ln in args.filename:
 
+# DONE: 1) Loop through the input file line by line
+# Loop through file line by line
+for ln in args.filename:
+# TODO 8: add a test to ignor the headder line which begins with a "#"
+
+    # DONE: 2) for the current line get the current Tax_id, Symbol, Synonyms and GeneID into variables
+    #   parse synonyms delimited by '|" to a list
     lnsplit = ln.strip("\t").split("\t")
     tax_id=lnsplit[0]
     GeneID=lnsplit[1]
@@ -53,8 +29,16 @@ for ln in args.filename:
     Synlist=Synonyms.split("|")
     print(Synlist)
 
+    # TODO: 3) Test if the tax_id for this line is in the list input from the command line by the user
+    #   If so do 4 and 5
+    #   else next line
+    #   increment taxID dictionary, key = ignored
+    #   if not add it to the Symbol dictionary and set count to 1, if so increment its count
     if tax_id in args.TAXID:
 
+        # DONE: 4)
+        #   increment taxID dictionary
+        #   Check to see if we have seen the Symbol before in the Symbol dictionary
         if tax_id in taxIDdict.keys():
             taxIDdict[tax_id] += 1
 
@@ -70,62 +54,21 @@ for ln in args.filename:
         else:
             taxIDdict['taxon ignored'] = 1
 
+# TODO: 5)
+#   Add code to populate symbolDict
+#   Add code to populate synonymlDict, include splitting pipe character delimited synonyms
+#   Add code to populate geneIDdict
+
 print (taxIDdict)
 
+# TODO: 6)
+#   After all lines of the file have been processed, report on the Symbols and the Synonyms
+#   how may total entries in taxID dictionary, how many for each taxID and "ignored"
+#   how many total symbols and
+#   how many total synonyms
 
+# TODO: 7)
+#   How many are unique?
+#   How many are present more than once?
 
-
-
-#         # print(count)
-#
-#             # print(format(tcount))
-#     print('TaxId:' + tax_id , 'GeneID:' + GeneID, 'Symbol:' + Symbol,'Synonyms:' + Synonyms)
-
-# print(taxIDdict)
-#TaxID Dictionary
-# a = int(args.TAXID)
-# taxIDdict = {a,0}
-# # taxIDdict = {tuple([args.TAXID]):0}
-# for tax_id in a:
-#     count+=1
-#     if tax_id in a:
-#         taxIDdict[a]+=1
-#     else:
-#         taxIDdict[a]=0
-#
-# print (taxIDdict)
-
-#Synonyms Dictionary
-# Syndict = {}
-# if tax_id in args.TAXID:
-#     for Synonyms in tax_id:
-#         Synonyms = Synonyms.split('|')
-#
-#         for Synonymname in Synonyms:
-#             if Synonymname in Syndict:
-#                 Syndict[Synonymname] = Syndict[Synonymname]+1
-#             else:
-#                 Syndict[Synonymname] = 1
-# print(Syndict)
-
-# #Symbol Dictionary
-# Symboldict={}
-#
-#
-# for SymbolID in Symbol:
-#     if SymbolID in Symboldict:
-#         Symboldict[SymbolID] = Symboldict[SymbolID] + 1
-#     else:
-#         Symboldict[SymbolID]=1
-#
-# print(Syndict)
-#
-# #Main Dictionary
-# maindict = {}
-# maindict.update(taxIDdict,Syndict,Symboldict)
-# print(maindict)
-# if currnet taxID is in the tqaxIDdict
-# increment the value of the element keyed at aers.taxID
-# something like: taxIDdict{args.taxID}++
-# else initalise
-# taxIDdict = {args.taxID: 1}
+# TODO 9) Do we need to compare gene and synonyms case insensitaivly?
