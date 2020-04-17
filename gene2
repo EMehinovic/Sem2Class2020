@@ -10,7 +10,9 @@ parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File
 parser.add_argument('-t', '--TaxID', type=str, nargs='*', action='store', required='true', dest='TAXID', help='Add ID Values')
 args = parser.parse_args()
 
+#
 # Define variables
+#
 taxIDdict = {}
 
 # DONE: 1) Loop through the input file line by line
