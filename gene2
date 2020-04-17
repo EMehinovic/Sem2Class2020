@@ -50,28 +50,30 @@ for ln in args.filename:
     Symbol=lnsplit[2]
     Synonyms=lnsplit[4]
 
-print (tax_id)
-print (type (tax_id))
+    Synlist=Synonyms.split("|")
+    print(Synlist)
 
+    if tax_id in args.TAXID:
 
-#    for args.TAXID in lst:
-if tax_id in args.TAXID:
+        if tax_id in taxIDdict.keys():
+            taxIDdict[tax_id] += 1
 
-    if tax_id in taxIDdict.keys():
-        taxIDdict[tax_id] += 1
+        else:
+            taxIDdict[tax_id]=1
+
+        #print (taxIDdict)
 
     else:
-        taxIDdict[tax_id]=1
+        if 'taxon ignored' in taxIDdict.keys():
+            taxIDdict['taxon ignored'] += 1
+
+        else:
+            taxIDdict['taxon ignored'] = 1
 
 print (taxIDdict)
 
-if tax_id in args.TAXID:
-    count += 1
 
-    print(True)
 
-else:
-    count+=0
 
 
 #         # print(count)
@@ -94,32 +96,32 @@ else:
 # print (taxIDdict)
 
 #Synonyms Dictionary
-Syndict = {}
-if tax_id in args.TAXID:
-    for Synonyms in tax_id:
-        Synonyms = Synonyms.split('|')
+# Syndict = {}
+# if tax_id in args.TAXID:
+#     for Synonyms in tax_id:
+#         Synonyms = Synonyms.split('|')
+#
+#         for Synonymname in Synonyms:
+#             if Synonymname in Syndict:
+#                 Syndict[Synonymname] = Syndict[Synonymname]+1
+#             else:
+#                 Syndict[Synonymname] = 1
+# print(Syndict)
 
-        for Synonymname in Synonyms:
-            if Synonymname in Syndict:
-                Syndict[Synonymname] = Syndict[Synonymname]+1
-            else:
-                Syndict[Synonymname] = 1
-print(Syndict)
-
-#Symbol Dictionary
-Symboldict={}
-
-
-for SymbolID in Symbol:
-    if SymbolID in Symboldict:
-        Symboldict[SymbolID] = Symboldict[SymbolID] + 1
-    else:
-        Symboldict[SymbolID]=1
-
-print(Syndict)
-
-#Main Dictionary
-maindict = {}
+# #Symbol Dictionary
+# Symboldict={}
+#
+#
+# for SymbolID in Symbol:
+#     if SymbolID in Symboldict:
+#         Symboldict[SymbolID] = Symboldict[SymbolID] + 1
+#     else:
+#         Symboldict[SymbolID]=1
+#
+# print(Syndict)
+#
+# #Main Dictionary
+# maindict = {}
 # maindict.update(taxIDdict,Syndict,Symboldict)
 # print(maindict)
 # if currnet taxID is in the tqaxIDdict
