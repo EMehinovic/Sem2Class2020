@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d7193bf-6074-403f-a7c2-e654a86cd868" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gene2" beforeDir="false" afterPath="$PROJECT_DIR$/gene2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genecount.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587094774104</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="04/17/2020 - updated TODOs">
+      <created>1587154396639</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587154396639</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +237,8 @@
     <MESSAGE value="04/14/2020v1" />
     <MESSAGE value="04/15/2020v1" />
     <MESSAGE value="04/16/2020v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="04/16/2020v1" />
+    <MESSAGE value="04/17/2020 - updated TODOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="04/17/2020 - updated TODOs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="28" y="84" key="#Inspections" timestamp="1586396076774">
@@ -248,10 +258,11 @@
       <screen x="0" y="23" width="1440" height="830" />
     </state>
     <state x="804" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.830@0.23.1440.830" timestamp="1584485625239" />
-    <state x="309" y="28" key="CommitChangelistDialog2" timestamp="1587094773894">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state x="412" y="7" key="CommitChangelistDialog2" timestamp="1587154395273">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="309" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585598564060" />
+    <state x="412" y="7" key="CommitChangelistDialog2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1587154395273" />
     <state x="309" y="25" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1586541317126" />
     <state x="309" y="28" key="CommitChangelistDialog2/0.23.1440.800@0.23.1440.800" timestamp="1586547951802" />
     <state x="309" y="28" key="CommitChangelistDialog2/0.23.1440.803@0.23.1440.803" timestamp="1586548630873" />
@@ -373,11 +384,11 @@
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="0" y="80" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1585756861252" />
-    <state x="427" y="229" key="Vcs.Push.Dialog.v2" timestamp="1587150380896">
+    <state x="427" y="229" key="Vcs.Push.Dialog.v2" timestamp="1587154780243">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585598574737" />
-    <state x="427" y="229" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1587150380896" />
+    <state x="427" y="229" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1587154780243" />
     <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.797@0.23.1440.797" timestamp="1586541324452" />
     <state x="320" y="192" key="Vcs.Push.Dialog.v2/0.23.1440.800@0.23.1440.800" timestamp="1586547960749" />
     <state x="320" y="193" key="Vcs.Push.Dialog.v2/0.23.1440.803@0.23.1440.803" timestamp="1586548293228" />
@@ -406,9 +417,10 @@
       <screen x="0" y="23" width="1440" height="803" />
     </state>
     <state x="309" y="179" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.803@0.23.1440.803" timestamp="1584583368184" />
-    <state x="121" y="222" key="git4idea.merge.GitPullDialog" timestamp="1587090593617">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state x="161" y="264" key="git4idea.merge.GitPullDialog" timestamp="1587154404978">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="161" y="264" key="git4idea.merge.GitPullDialog/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1587154404978" />
     <state x="121" y="221" key="git4idea.merge.GitPullDialog/0.23.1440.810@0.23.1440.810" timestamp="1586844767751" />
     <state x="121" y="222" key="git4idea.merge.GitPullDialog/0.23.1440.814@0.23.1440.814" timestamp="1587090593617" />
     <state x="173" y="890" width="670" height="599" key="search.everywhere.popup" timestamp="1586512509453">

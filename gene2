@@ -27,9 +27,9 @@ for ln in args.filename:
     Synonyms=lnsplit[4]
 
     Synlist=Synonyms.split("|")
-    print(Synlist)
+#    print(Synlist)
 
-    # TODO: 3) Test if the tax_id for this line is in the list input from the command line by the user
+    # DONE: 3) Test if the tax_id for this line is in the list input from the command line by the user
     #   If so do 4 and 5
     #   else next line
     #   increment taxID dictionary, key = ignored
