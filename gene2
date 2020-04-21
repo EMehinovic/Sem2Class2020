@@ -19,6 +19,8 @@ dicKey={}
 SymbolDict={}
 GeneDict={}
 Syncount=0
+GeneCount=0
+SymbCount=0
 # DONE: 1) Loop through the input file line by line
 # Loop through file line by line
 for ln in args.filename:
@@ -96,6 +98,7 @@ for ln in args.filename:
 
             else:
                 SymbolDict[Symbol]=1
+            SymbCount+=1
 #GeneID Dict
     if tax_id in args.TAXID:
         if GeneID in GeneDict:
@@ -103,6 +106,7 @@ for ln in args.filename:
             GeneDict[GeneID]+=1
         else:
             GeneDict[GeneID]=1
+        GeneCount+=1
 
 
 
@@ -110,13 +114,15 @@ for ln in args.filename:
 
 print('TAXID')
 print(taxIDdict)
-print('GeneIDs' )
+print('\nGeneIDs' )
+print(GeneCount)
 print(GeneDict)
-print('SymbolIDs')
+print('\nSymbolIDs')
+print(SymbCount)
 print(SymbolDict)
-print('Total Synonyms Seen')
+print('\nTotal Synonyms Seen')
 print(Syncount)
-print('SynonymList View')
+print('\nSynonymList View')
 print(Synlistfull)
 
 
