@@ -18,22 +18,23 @@ Synlistfull = {}
 dicKey={}
 SymbolDict={}
 GeneDict={}
+Syncount=0
 # DONE: 1) Loop through the input file line by line
 # Loop through file line by line
 for ln in args.filename:
-    if not ln.startswith('#'):
+    # if not ln.startswith('#'):
 
 # TODO 8: add a test to ignor the headder line which begins with a "#"
 
     # DONE: 2) for the current line get the current Tax_id, Symbol, Synonyms and GeneID into variables
     #   parse synonyms delimited by '|" to a list
-        lnsplit = ln.strip("\t").split("\t")
-        tax_id=lnsplit[0]
-        GeneID=lnsplit[1]
-        Symbol=lnsplit[2]
-        Synonyms=lnsplit[4]
+    lnsplit = ln.strip("\t").split("\t")
+    tax_id=lnsplit[0]
+    GeneID=lnsplit[1]
+    Symbol=lnsplit[2]
+    Synonyms=lnsplit[4]
 
-        Synlist=Synonyms.split("|")
+    Synlist=Synonyms.split("|")
 
 
 
@@ -74,23 +75,37 @@ for ln in args.filename:
                 Synlistfull[i]=0
                 if dicKey in Synlistfull.keys():
                     Synlistfull[dicKey]+=1
+                    Syncount+=1
+
 
                 else:
                     Synlistfull[dicKey]=1
+
             else:
-                Synlistfull[i]+=1
+                if 'not' in SymbolDict.keys():
+
+                    Synlistfull['not']+=1
+                else:
+                    SymbolDict['not']=1
+
+
 #Symbol Dict
     if tax_id in args.TAXID:
             if Symbol in SymbolDict:
                 SymbolDict[Symbol]+=1
+
             else:
                 SymbolDict[Symbol]=1
 #GeneID Dict
     if tax_id in args.TAXID:
         if GeneID in GeneDict:
+
             GeneDict[GeneID]+=1
         else:
             GeneDict[GeneID]=1
+
+
+
 
 
 print('TAXID')
@@ -99,7 +114,9 @@ print('GeneIDs' )
 print(GeneDict)
 print('SymbolIDs')
 print(SymbolDict)
-print('SynonymList')
+print('Total Synonyms Seen')
+print(Syncount)
+print('SynonymList View')
 print(Synlistfull)
 
 
