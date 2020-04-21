@@ -14,22 +14,31 @@ args = parser.parse_args()
 # Define variables
 #
 taxIDdict = {}
-
+Synlistfull = {}
+dicKey={}
+SymbolDict={}
+GeneDict={}
 # DONE: 1) Loop through the input file line by line
 # Loop through file line by line
 for ln in args.filename:
+    if not ln.startswith('#'):
+
 # TODO 8: add a test to ignor the headder line which begins with a "#"
 
     # DONE: 2) for the current line get the current Tax_id, Symbol, Synonyms and GeneID into variables
     #   parse synonyms delimited by '|" to a list
-    lnsplit = ln.strip("\t").split("\t")
-    tax_id=lnsplit[0]
-    GeneID=lnsplit[1]
-    Symbol=lnsplit[2]
-    Synonyms=lnsplit[4]
+        lnsplit = ln.strip("\t").split("\t")
+        tax_id=lnsplit[0]
+        GeneID=lnsplit[1]
+        Symbol=lnsplit[2]
+        Synonyms=lnsplit[4]
 
-    Synlist=Synonyms.split("|")
-#    print(Synlist)
+        Synlist=Synonyms.split("|")
+
+
+
+
+    # print(Synlist)
 
     # DONE: 3) Test if the tax_id for this line is in the list input from the command line by the user
     #   If so do 4 and 5
@@ -55,13 +64,54 @@ for ln in args.filename:
 
         else:
             taxIDdict['taxon ignored'] = 1
+  #Syn Dict- Might be wrong- probably is
+
+    if tax_id in args.TAXID:
+        for i in Synlist:
+            if not i[0]==("|"):
+
+                dicKey=i
+                Synlistfull[i]=0
+                if dicKey in Synlistfull.keys():
+                    Synlistfull[dicKey]+=1
+
+                else:
+                    Synlistfull[dicKey]=1
+            else:
+                Synlistfull[i]+=1
+#Symbol Dict
+    if tax_id in args.TAXID:
+            if Symbol in SymbolDict:
+                SymbolDict[Symbol]+=1
+            else:
+                SymbolDict[Symbol]=1
+#GeneID Dict
+    if tax_id in args.TAXID:
+        if GeneID in GeneDict:
+            GeneDict[GeneID]+=1
+        else:
+            GeneDict[GeneID]=1
+
+
+print('TAXID')
+print(taxIDdict)
+print('GeneIDs' )
+print(GeneDict)
+print('SymbolIDs')
+print(SymbolDict)
+print('SynonymList')
+print(Synlistfull)
+
+
+
+
 
 # TODO: 5)
 #   Add code to populate symbolDict
 #   Add code to populate synonymlDict, include splitting pipe character delimited synonyms
 #   Add code to populate geneIDdict
 
-print (taxIDdict)
+# print (taxIDdict)
 
 # TODO: 6)
 #   After all lines of the file have been processed, report on the Symbols and the Synonyms
