@@ -160,3 +160,11 @@ print(Synlistfull)
 #   add command line option "-i", flag boolean, default false
 #   if the option is set all comparisons will be case insensitive
 #   otherwise all comparisons are case sensitive
+
+# TODO 10)
+#   Logic
+#   Gene symbols should be unique
+#   If a synonym matches a symbol, do not report the synonym
+#   If a synonym is present more than once do not report the synonyms
+#   Output is tab delimited:
+#   Gene Symbol Description Synonyms (multiple synonyms seperated by semicolons)
