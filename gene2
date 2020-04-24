@@ -1,18 +1,15 @@
 #!/usr/bin/python
 
 import argparse
-# import re
-from fileinput import filename
-count=0
+
 parser = argparse.ArgumentParser(description='genefiles')
 
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
 parser.add_argument('-t', '--TaxID', type=str, nargs='*', action='store', required='true', dest='TAXID', help='Add ID Values')
+parser.add_argument('-i', type=str, nargs='*', action='store', default=False, help='Case Sensetivity on: type yes or no')
 args = parser.parse_args()
 
-#
 # Define variables
-#
 taxIDdict = {}
 Synlistfull = {}
 dicKey={}
@@ -21,11 +18,22 @@ GeneDict={}
 Syncount=0
 GeneCount=0
 SymbCount=0
+
+
 # DONE: 1) Loop through the input file line by line
 # Loop through file line by line
 for ln in args.filename:
+    
     if not ln.startswith('#'):
 
+#Case Sensitive no:
+        if 'no' in args.i:
+
+            ln = ln.lower()
+
+        else:
+
+            ln
 # TODO 8: add a test to ignor the headder line which begins with a "#"
 
     # DONE: 2) for the current line get the current Tax_id, Symbol, Synonyms and GeneID into variables
@@ -35,11 +43,7 @@ for ln in args.filename:
         GeneID=lnsplit[1]
         Symbol=lnsplit[2]
         Synonyms=lnsplit[4]
-
         Synlist=Synonyms.split("|")
-
-
-
 
     # print(Synlist)
 
@@ -54,55 +58,63 @@ for ln in args.filename:
         #   increment taxID dictionary
         #   Check to see if we have seen the Symbol before in the Symbol dictionary
         if tax_id in taxIDdict.keys():
+
             taxIDdict[tax_id] += 1
 
         else:
-            taxIDdict[tax_id]=1
 
-        #print (taxIDdict)
+            taxIDdict[tax_id]=1
 
     else:
         if 'taxon ignored' in taxIDdict.keys():
+
             taxIDdict['taxon ignored'] += 1
 
         else:
-            taxIDdict['taxon ignored'] = 1
-  #Syn Dict- Might be wrong- probably is
 
+            taxIDdict['taxon ignored'] = 1
+
+  #Syn Dict- Might be wrong- probably is
     if tax_id in args.TAXID:
+
         for dicKey in Synlist:
+
             if not dicKey==("-"):
 
                 if dicKey in Synlistfull.keys():
+
                     Synlistfull[dicKey]+=1
 
                 else:
                     Synlistfull[dicKey]=1
+
                     Syncount += 1
 
             else:
-                if 'not' in Synlistfull.keys():
-
-                    Synlistfull['not']+=1
-                else:
                     Synlistfull['not']=1
 
 
 #Symbol Dict
     if tax_id in args.TAXID:
+
             if Symbol in SymbolDict:
+
                 SymbolDict[Symbol]+=1
 
             else:
+
                 SymbolDict[Symbol]=1
+
             SymbCount+=1
 #GeneID Dict
     if tax_id in args.TAXID:
+
         if GeneID in GeneDict:
 
             GeneDict[GeneID]+=1
         else:
             GeneDict[GeneID]=1
+
         GeneCount+=1
 
 
