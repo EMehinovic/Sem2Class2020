@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(description='genefiles')
 
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
 parser.add_argument('-t', '--TaxID', type=str, nargs='*', action='store', required='true', dest='TAXID', help='Add ID Values')
-parser.add_argument('-i', type=str, nargs='*', action='store', default=False, help='Case Sensetivity on: type yes or no')
+parser.add_argument('--case_sensitive', action='store_true', default=False, help='Case Sensetivity, flag')
 args = parser.parse_args()
 
 # Define variables
@@ -26,18 +26,19 @@ for ln in args.filename:
     
     if not ln.startswith('#'):
 
-#Case Sensitive no:
-        if 'no' in args.i:
+        #Case Sensitive no:
+        if not args.case_sensitive:
 
+            ln_mixed_case = ln
             ln = ln.lower()
 
-        else:
 
-            ln
-# TODO 8: add a test to ignor the headder line which begins with a "#"
+        # DONE 8: add a test to ignore the header line which begins with a "#"
 
-    # DONE: 2) for the current line get the current Tax_id, Symbol, Synonyms and GeneID into variables
-    #   parse synonyms delimited by '|" to a list
+        # DONE: 2) for the current line get the current Tax_id, Symbol, Synonyms and GeneID into variables
+        #   parse synonyms delimited by '|" to a list
+        # TODO: 11) Capture description field 8
+        print (ln)
         lnsplit = ln.strip("\t").split("\t")
         tax_id=lnsplit[0]
         GeneID=lnsplit[1]
@@ -45,77 +46,78 @@ for ln in args.filename:
         Synonyms=lnsplit[4]
         Synlist=Synonyms.split("|")
 
-    # print(Synlist)
+        # print(Synlist)
 
-    # DONE: 3) Test if the tax_id for this line is in the list input from the command line by the user
-    #   If so do 4 and 5
-    #   else next line
-    #   increment taxID dictionary, key = ignored
-    #   if not add it to the Symbol dictionary and set count to 1, if so increment its count
-    if tax_id in args.TAXID:
+        # DONE: 3) Test if the tax_id for this line is in the list input from the command line by the user
+        #   If so do 4 and 5
+        #   else next line
+        #   increment taxID dictionary, key = ignored
+        #   if not add it to the Symbol dictionary and set count to 1, if so increment its count
 
-        # DONE: 4)
-        #   increment taxID dictionary
-        #   Check to see if we have seen the Symbol before in the Symbol dictionary
-        if tax_id in taxIDdict.keys():
+        if tax_id in args.TAXID:
 
-            taxIDdict[tax_id] += 1
+            # DONE: 4)
+            #   increment taxID dictionary
+            #   Check to see if we have seen the Symbol before in the Symbol dictionary
+            if tax_id in taxIDdict.keys():
 
-        else:
+                taxIDdict[tax_id] += 1
 
-            taxIDdict[tax_id]=1
+            else:
 
-    else:
-        if 'taxon ignored' in taxIDdict.keys():
-
-            taxIDdict['taxon ignored'] += 1
+                taxIDdict[tax_id]=1
 
         else:
+            if 'taxon ignored' in taxIDdict.keys():
 
-            taxIDdict['taxon ignored'] = 1
+                taxIDdict['taxon ignored'] += 1
 
-  #Syn Dict- Might be wrong- probably is
-    if tax_id in args.TAXID:
+            else:
 
-        for dicKey in Synlist:
+                taxIDdict['taxon ignored'] = 1
 
-            if not dicKey==("-"):
+      #Syn Dict- Might be wrong- probably is
+        if tax_id in args.TAXID:
 
-                if dicKey in Synlistfull.keys():
+            for dicKey in Synlist:
 
-                    Synlistfull[dicKey]+=1
+                if not dicKey==("-"):
+
+                    if dicKey in Synlistfull.keys():
+
+                        Synlistfull[dicKey]+=1
+
+                    else:
+                        Synlistfull[dicKey]=1
+
+                        Syncount += 1
 
                 else:
-                    Synlistfull[dicKey]=1
+                        Synlistfull['not']=1
 
-                    Syncount += 1
 
+    #Symbol Dict
+        if tax_id in args.TAXID:
+
+                if Symbol in SymbolDict:
+
+                    SymbolDict[Symbol]+=1
+
+                else:
+
+                    SymbolDict[Symbol]=1
+
+                SymbCount+=1
+    #GeneID Dict
+        if tax_id in args.TAXID:
+
+            if GeneID in GeneDict:
+
+                GeneDict[GeneID]+=1
             else:
-                    Synlistfull['not']=1
+                GeneDict[GeneID]=1
 
-
-#Symbol Dict
-    if tax_id in args.TAXID:
-
-            if Symbol in SymbolDict:
-
-                SymbolDict[Symbol]+=1
-
-            else:
-
-                SymbolDict[Symbol]=1
-
-            SymbCount+=1
-#GeneID Dict
-    if tax_id in args.TAXID:
-
-        if GeneID in GeneDict:
-
-            GeneDict[GeneID]+=1
-        else:
-            GeneDict[GeneID]=1
-
-        GeneCount+=1
+            GeneCount+=1
 
 
 
@@ -134,28 +136,24 @@ print(Syncount)
 print('\nSynonymList View')
 print(Synlistfull)
 
-
-
-
-
-# TODO: 5)
+# DONE: 5)
 #   Add code to populate symbolDict
 #   Add code to populate synonymlDict, include splitting pipe character delimited synonyms
 #   Add code to populate geneIDdict
 
 # print (taxIDdict)
 
-# TODO: 6)
+# DONE: 6)
 #   After all lines of the file have been processed, report on the Symbols and the Synonyms
 #   how may total entries in taxID dictionary, how many for each taxID and "ignored"
 #   how many total symbols and
 #   how many total synonyms
 
-# TODO: 7)
+# DEPRICATED: 7)
 #   How many are unique?
 #   How many are present more than once?
 
-# TODO 9)
+# DONE 9)
 #   Do we need to compare gene and synonyms case insensitaivly?
 #   add command line option "-i", flag boolean, default false
 #   if the option is set all comparisons will be case insensitive
@@ -163,8 +161,11 @@ print(Synlistfull)
 
 # TODO 10)
 #   Logic
+#   go through the file line by line again
+#   use mixed case values for output, do the comparisons to the exsisting dictionaries insensitivly
 #   Gene symbols should be unique
-#   If a synonym matches a symbol, do not report the synonym
-#   If a synonym is present more than once do not report the synonyms
-#   Output is tab delimited:
-#   Gene Symbol Description Synonyms (multiple synonyms seperated by semicolons)
+#   If not report error and gene symbol, do not report in output
+#   If a synonym matches a symbol, do not report the synonym in the output
+#   If a synonym is present more than once do not report the synonyms in the output in any case
+#   Output is tab delimited, use original mixed case:
+#   Gene Symbol "\t" Description "\t" Synonyms (multiple synonyms seperated by semicolons) "\n"
