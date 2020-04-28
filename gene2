@@ -57,7 +57,9 @@ for ln in args.filename:
         lnMCGID=lnMCsplit[1]
         lnMCSymbol=lnMCsplit[2]
         lnMCSyn=lnMCsplit[4]
+        lnMCDESCRIPTION=lnMCsplit[8]
         lnMcSynlist=lnMCSyn.split("|")
+
 
 
 
