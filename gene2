@@ -253,16 +253,9 @@ with open('outputfile','w+') as fileoutput:
         outputGenelist.appemd(outputGenelist)
         outputDescription.append(outputDescription)
         outputSynlist.appemd(outputSynlist)
-        fileoutput.write(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist)
+        fileoutput.write(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist+'\n')
 
-
-
-    # print(Synlistfull2.keys())
-    #
-    # print(args.TAXID,'\t')
-    # print(GeneDict, '\t')
-    # print('Synonyms: ')
-
+#Not sure if I did this correctly
 
 
 
