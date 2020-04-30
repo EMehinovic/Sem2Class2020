@@ -18,7 +18,7 @@ dicKey2={}
 SymbolDict={}
 SymbolDict2={}
 GeneDict={}
-GeneDict2={}
+DesDict={}
 Syncount=0
 GeneCount=0
 SymbCount=0
@@ -59,6 +59,7 @@ for ln in args.filename:
         lnMCSyn=lnMCsplit[4]
         lnMCDESCRIPTION=lnMCsplit[8]
         lnMcSynlist=lnMCSyn.split("|")
+
 
 
 
@@ -170,15 +171,23 @@ for ln in args.filename:
                 GeneDict[GeneID]=1
 
             GeneCount+=1
+        if tax_id in args.TAXID:
+            if lnMCDESCRIPTION in DesDict:
+                DesDict[lnMCDESCRIPTION]+=1
+            else:
+                DesDict[lnMCDESCRIPTION]=1
 
 
 
 
 
 
-print('Symbol list return: \n',SymbolDict2)
-print("\t")
-print("\t")
+
+
+
+# print('Symbol list return: \n',SymbolDict2)
+# print("\t")
+# print("\t")
 
 
 
@@ -187,20 +196,20 @@ for matchingKey in Synlistfull.keys():
 
     if matchingKey in SymbolDict:
         # for refrence that works: will not report on it if it does
-        print('Error Repeat:', matchingKey)
+        # print('Error Repeat:', matchingKey)
         del Synlistfull[matchingKey]
 
-print("\t")
-print("\t")
+# print("\t")
+# print("\t")
 for SynListkey, SynValue in Synlistfull.items():
     if SynListkey in Synlistfull:
         if SynValue>=2:
 
-            print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
+            # print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
             del Synlistfull[SynListkey]
-
-print("\t")
-print("\t")
+#
+# print("\t")
+# print("\t")
 
 # Gene Symbols unique check
 for Genekey,value in GeneDict.items():
@@ -210,14 +219,14 @@ for Genekey,value in GeneDict.items():
         if value > 1:
             # Should we keep one of the keys ?
             # GeneKeyOneCount = {Genekey: 1}
-            print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
+            # print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
 
             del GeneDict[Genekey]
             #Adds the key we deleted with a 1 count vs what it orginal had
-
-print('GeneList\n',GeneDict)
-print("\t")
-print("\t")
+#
+# print('GeneList\n',GeneDict)
+# print("\t")
+# print("\t")
 #####################Match Case on Synlist works:
 for matchCasekey in Synlistfull2.keys():
     if not matchCasekey.lower() in Synlistfull.keys():
@@ -225,13 +234,34 @@ for matchCasekey in Synlistfull2.keys():
         # print(True)
         del Synlistfull2[matchCasekey]
 
-
-print('Output Synlist:')
-print(Synlistfull2)
-
-
+#
+# print('Output Synlist:')
+# print(Synlistfull2)
 
 
+keylist=[]
+# ######### output file
+# zip(GeneDict,lnMCDESCRIPTION,Synlistfull2)
+with open('outputfile','w+') as fileoutput:
+    outputGenelist=':'.join(GeneDict.keys())
+    outputDescription = ':'.join(DesDict.keys())
+
+    outputSynlist = ': '.join(Synlistfull2.keys())
+    # print(outputSynlist)
+    for item in fileoutput:
+        outputGenelist,outputDescription,outputSynlist= item.strip().split('\t')
+        outputGenelist.appemd(outputGenelist)
+        outputDescription.append(outputDescription)
+        outputSynlist.appemd(outputSynlist)
+        fileoutput.write(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist)
+
+
+
+    # print(Synlistfull2.keys())
+    #
+    # print(args.TAXID,'\t')
+    # print(GeneDict, '\t')
+    # print('Synonyms: ')
 
 
 
