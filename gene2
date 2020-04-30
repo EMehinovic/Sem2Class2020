@@ -253,8 +253,8 @@ with open('outputfile','w+') as fileoutput:
         outputGenelist.appemd(outputGenelist)
         outputDescription.append(outputDescription)
         outputSynlist.appemd(outputSynlist)
-        fileoutput.write(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist+'\n')
-
+    fileoutput.writelines(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist+'\n')
+fileoutput.close()
 #Not sure if I did this correctly
 
 
