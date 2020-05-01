@@ -242,9 +242,9 @@ for matchCasekey in Synlistfull2.keys():
 keylist=[]
 # ######### output file
 # zip(GeneDict,lnMCDESCRIPTION,Synlistfull2)
-with open('outputfile','w+') as fileoutput:
-    outputGenelist=':'.join(GeneDict.keys())
-    outputDescription = ':'.join(DesDict.keys())
+with open('outputfile.txt','w+') as fileoutput:
+    outputGenelist=': '.join(GeneDict.keys())
+    outputDescription = ': '.join(DesDict.keys())
 
     outputSynlist = ': '.join(Synlistfull2.keys())
     # print(outputSynlist)
@@ -253,12 +253,17 @@ with open('outputfile','w+') as fileoutput:
         outputGenelist.appemd(outputGenelist)
         outputDescription.append(outputDescription)
         outputSynlist.appemd(outputSynlist)
-    fileoutput.writelines(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist+'\n')
+    print(outputGenelist + "\t" + outputDescription + "\t" + outputSynlist + '\n')
+
+    fileoutput.write(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist+'\n')
+
 fileoutput.close()
 #Not sure if I did this correctly
 
 
-
+# with open('outputfil','w+') as fileoutpu:
+#     fileoutpu.write('Hi')
+# fileoutpu.close()
 
 
 
