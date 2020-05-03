@@ -35,7 +35,7 @@ for ln in args.filename:
         #Case Sensitive no:
         if not args.case_sensitive:
             ln_mixed_case = ln
-            ln = ln.lower()
+            line = ln.lower()
 
 
         # DONE 8: add a test to ignore the header line which begins with a "#"
@@ -45,7 +45,7 @@ for ln in args.filename:
         # TODO: 11) Capture description field 8
         # print (ln)
 
-        lnsplit = ln.strip("\t").split("\t")
+        lnsplit = line.strip("\t").split("\t")
         tax_id=lnsplit[0]
         GeneID=lnsplit[1]
         Symbol=lnsplit[2]
@@ -59,9 +59,6 @@ for ln in args.filename:
         lnMCSyn=lnMCsplit[4]
         lnMCDESCRIPTION=lnMCsplit[8]
         lnMcSynlist=lnMCSyn.split("|")
-
-
-
 
 
 
@@ -115,30 +112,6 @@ for ln in args.filename:
                         Syncount += 1
 
 
-
-
-
-
-######################
-        for lnMCSyn in [key.lower() for key in Synlistfull.keys()]:
-
-
-
-            for dicKey2 in lnMcSynlist:
-                if not dicKey2==("-"):
-
-
-                    if dicKey2 in Synlistfull2.keys():
-                        dicKey2.lower() == dicKey2
-
-
-###Acts up right here
-                        Synlistfull2[dicKey2]+=0
-
-                    else:
-                        Synlistfull2[dicKey2]=1
-
-
     #Symbol Dict
         if tax_id in args.TAXID:
 
@@ -152,11 +125,7 @@ for ln in args.filename:
 
                 SymbCount+=1
 ### actually works
-        if lnMCSymbol.lower() in [key.lower() for key in SymbolDict.keys()]:
-            if lnMCSymbol in SymbolDict2:
-                SymbolDict2[lnMCSymbol]+=1
-            else:
-                SymbolDict2[lnMCSymbol]=1
+
 
 
 
@@ -171,14 +140,96 @@ for ln in args.filename:
                 GeneDict[GeneID]=1
 
             GeneCount+=1
-        if tax_id in args.TAXID:
-            if lnMCDESCRIPTION in DesDict:
-                DesDict[lnMCDESCRIPTION]+=1
-            else:
-                DesDict[lnMCDESCRIPTION]=1
+        # if tax_id in args.TAXID:
+        #     if lnMCDESCRIPTION in DesDict:
+        #         DesDict[lnMCDESCRIPTION]+=1
+        #     else:
+        #         DesDict[lnMCDESCRIPTION]=1
+
+# add a new fo loop like code line 31
+
+# TODO 10)
+#   Logic:
+#   go through the file again line by line
+#   use mixed case values for output, do the comparisons to the exsisting dictionaries insensitivly
+#   Gene symbols should be unique
+#   If not report error and gene symbol, do not report in output
+#   If a synonym matches a symbol, do not report the synonym in the output
+#   If a synonym is present more than once do not report the synonyms in the output in any case
+#   Output is tab delimited, use original mixed case:
+#   Gene Symbol "\t" Description "\t" Synonyms (multiple synonyms seperated by semicolons) "\n"
+
+
+for ln in args.filename:
+
+    if not ln.startswith('#'):
+
+        # Case Sensitive no:
+        if not args.case_sensitive:
+            ln_mixed_case = ln
+            ln = ln.lower()
+
+            lnsplit = ln.strip("\t").split("\t")
+            tax_id=lnsplit[0]
+            GeneID=lnsplit[1]
+            Symbol=lnsplit[2]
+            Synonyms=lnsplit[4]
+            Synlist=Synonyms.split("|")
+
+            lnMCsplit=ln_mixed_case.strip("\t").split("\t")
+            lnMCTaxId=lnMCsplit[0]
+            lnMCGID=lnMCsplit[1]
+            lnMCSymbol=lnMCsplit[2]
+            lnMCSyn=lnMCsplit[4]
+            lnMCDESCRIPTION=lnMCsplit[8]
+            lnMcSynlist=lnMCSyn.split("|")
 
 
 
+        # for matchingKey in Synlistfull.keys():
+        #
+        #     if matchingKey in SymbolDict:
+        #
+        #         print('Error Repeat:', matchingKey)
+        #         del Synlistfull[matchingKey]
+        #
+        #
+        # for SynListkey, SynValue in Synlistfull.items():
+        #     if SynListkey in Synlistfull:
+        #         if SynValue>=2:
+        #
+        #             print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
+        #             del Synlistfull[SynListkey]
+
+        # for lnMcSynlist in Synlistfull.keys():
+        #     # if lnMcSynlist.lower() in Synlistfull:
+        #     #     # print(lnMcSynlist)
+        #     # else:
+        #     #     continue
+
+
+        # if lnMCSymbol in SymbolDict.keys():
+        #     if lnMCSymbol in SymbolDict:
+        #         print(True)
+
+
+
+        # if lnMCGID.lower() in GeneDict.keys():
+        #     for Genekey, value in GeneDict.items():
+        #
+        #         if Genekey in GeneDict:
+        #
+        #             if value > 1:
+        #
+        #                 # print('Error Duplicate Key:', Genekey, 'Found', value, 'Times')
+        #
+        #                 del GeneDict[Genekey]
+            # if lnMCGID in GeneDict:
+            #
+            #     print(lnMCGID)
+
+
+# print(lnMcSynlist)
 
 
 
@@ -190,74 +241,74 @@ for ln in args.filename:
 # print("\t")
 
 
-
-# Matching keys in Synlist if in Symbollist
-for matchingKey in Synlistfull.keys():
-
-    if matchingKey in SymbolDict:
-        # for refrence that works: will not report on it if it does
-        # print('Error Repeat:', matchingKey)
-        del Synlistfull[matchingKey]
-
-# print("\t")
-# print("\t")
-for SynListkey, SynValue in Synlistfull.items():
-    if SynListkey in Synlistfull:
-        if SynValue>=2:
-
-            # print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
-            del Synlistfull[SynListkey]
 #
-# print("\t")
-# print("\t")
-
-# Gene Symbols unique check
-for Genekey,value in GeneDict.items():
-
-    if Genekey in GeneDict:
-
-        if value > 1:
-            # Should we keep one of the keys ?
-            # GeneKeyOneCount = {Genekey: 1}
-            # print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
-
-            del GeneDict[Genekey]
-            #Adds the key we deleted with a 1 count vs what it orginal had
+# # Matching keys in Synlist if in Symbollist
+# for matchingKey in Synlistfull.keys():
 #
-# print('GeneList\n',GeneDict)
-# print("\t")
-# print("\t")
-#####################Match Case on Synlist works:
-for matchCasekey in Synlistfull2.keys():
-    if not matchCasekey.lower() in Synlistfull.keys():
-        # print(matchCasekey)
-        # print(True)
-        del Synlistfull2[matchCasekey]
-
+#     if matchingKey in SymbolDict:
+#         # for refrence that works: will not report on it if it does
+#         # print('Error Repeat:', matchingKey)
+#         del Synlistfull[matchingKey]
 #
-# print('Output Synlist:')
-# print(Synlistfull2)
-
-
-keylist=[]
-# ######### output file
-# zip(GeneDict,lnMCDESCRIPTION,Synlistfull2)
-with open('outputfile.txt','w+') as fileoutput:
-    outputGenelist=': '.join(GeneDict.keys())
-    outputDescription = ': '.join(DesDict.keys())
-
-    outputSynlist = ': '.join(Synlistfull2.keys())
-    # print(outputSynlist)
-    for item in fileoutput:
-        outputGenelist,outputDescription,outputSynlist= item.strip().split('\t')
-        outputGenelist.appemd(outputGenelist)
-        outputDescription.append(outputDescription)
-        outputSynlist.appemd(outputSynlist)
-    print(outputGenelist + "\t" + outputDescription + "\t" + outputSynlist + '\n')
-
-    fileoutput.write(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist+'\n')
-
-fileoutput.close()
+# # print("\t")
+# # print("\t")
+# for SynListkey, SynValue in Synlistfull.items():
+#     if SynListkey in Synlistfull:
+#         if SynValue>=2:
+#
+#             # print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
+#             del Synlistfull[SynListkey]
+# #
+# # print("\t")
+# # print("\t")
+#
+# # Gene Symbols unique check
+# for Genekey,value in GeneDict.items():
+#
+#     if Genekey in GeneDict:
+#
+#         if value > 1:
+#             # Should we keep one of the keys ?
+#             # GeneKeyOneCount = {Genekey: 1}
+#             # print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
+#
+#             del GeneDict[Genekey]
+#             #Adds the key we deleted with a 1 count vs what it orginal had
+# #
+# # print('GeneList\n',GeneDict)
+# # print("\t")
+# # print("\t")
+# #####################Match Case on Synlist works:
+# for matchCasekey in Synlistfull2.keys():
+#     if not matchCasekey.lower() in Synlistfull.keys():
+#         # print(matchCasekey)
+#         # print(True)
+#         del Synlistfull2[matchCasekey]
+#
+# #
+# # print('Output Synlist:')
+# # print(Synlistfull2)
+#
+#
+# keylist=[]
+# # ######### output file
+# # zip(GeneDict,lnMCDESCRIPTION,Synlistfull2)
+# with open('outputfile.txt','w+') as fileoutput:
+#     outputGenelist=': '.join(GeneDict.keys())
+#     outputDescription = ': '.join(DesDict.keys())
+#
+#     outputSynlist = ': '.join(Synlistfull2.keys())
+#     # print(outputSynlist)
+#     for item in fileoutput:
+#         outputGenelist,outputDescription,outputSynlist= item.strip().split('\t')
+#         outputGenelist.appemd(outputGenelist)
+#         outputDescription.append(outputDescription)
+#         outputSynlist.appemd(outputSynlist)
+#     print(outputGenelist + "\t" + outputDescription + "\t" + outputSynlist + '\n')
+#
+#     fileoutput.write(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist+'\n')
+#
+# fileoutput.close()
 #Not sure if I did this correctly
 
 
@@ -312,14 +363,3 @@ fileoutput.close()
 #   add command line option "-i", flag boolean, default false
 #   if the option is set all comparisons will be case insensitive
 #   otherwise all comparisons are case sensitive
-
-# TODO 10)
-#   Logic
-#   go through the file line by line again
-#   use mixed case values for output, do the comparisons to the exsisting dictionaries insensitivly
-#   Gene symbols should be unique
-#   If not report error and gene symbol, do not report in output
-#   If a synonym matches a symbol, do not report the synonym in the output
-#   If a synonym is present more than once do not report the synonyms in the output in any case
-#   Output is tab delimited, use original mixed case:
-#   Gene Symbol "\t" Description "\t" Synonyms (multiple synonyms seperated by semicolons) "\n"
