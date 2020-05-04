@@ -145,6 +145,7 @@ for ln in args.filename:
         #         DesDict[lnMCDESCRIPTION]+=1
         #     else:
         #         DesDict[lnMCDESCRIPTION]=1
+args.filename.close()
 
 # add a new fo loop like code line 31
 
