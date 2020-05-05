@@ -205,8 +205,10 @@ for Genekey,value in GeneDict.items():
 #
 
 
-with open(args.filename) as ln:
-    print(ln.readline(2))
+args.filename.seek(0)
+for ln in args.filename:
+    print(ln)
+
 # for ln in args.filename:
 #
 #
