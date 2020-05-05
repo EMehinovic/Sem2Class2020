@@ -200,13 +200,11 @@ args.filename.close()
 #
 
 
-with open(args.filename,'r') as my_file:
+with open(args.filename,'r') as ln:
 #     print(my_file.readline(2))
-    for my_file in args.filename:
+    for ln in args.filename:
 
         #my_file.closed
-
-
 
         if not ln.startswith('#'):
 
