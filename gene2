@@ -6,41 +6,33 @@ from argparse import Namespace
 parser = argparse.ArgumentParser(description='genefiles')
 
 parser.add_argument('filename', type=argparse.FileType('r'), help='Insert a File name')
-parser.add_argument('-t', '--TaxID', type=str, nargs='*', action='store', required='true', dest='TAXID', help='Add ID Values')
+parser.add_argument('-t', '--TaxID', type=str, nargs='*', action='store', required='true', dest='TAXID',
+                    help='Add ID Values')
 parser.add_argument('--case_sensitive', action='store_true', default=False, help='Case Sensetivity, flag')
 args = parser.parse_args()
 
 # Define variables
 taxIDdict = {}
 Synlistfull = {}
-Synlistfull2 = {}
-dicKey={}
-dicKey2={}
-SymbolDict={}
-SymbolDict2={}
-GeneDict={}
-DesDict={}
-Syncount=0
-GeneCount=0
-SymbCount=0
-
-
-
+dicKey = {}
+SymbolDict = {}
+GeneDict = {}
+DesDict = {}
+Syncount = 0
+GeneCount = 0
+SymbCount = 0
+count = 0
 
 # DONE: 1) Loop through the input file line by line
 # Loop through file line by line
 for ln in args.filename:
 
-
     if not ln.startswith('#'):
 
-        #Case Sensitive no:
+        # Case Sensitive no:
         if not args.case_sensitive:
             ln_mixed_case = ln
             ln = ln.lower()
-
-
-
 
         # DONE 8: add a test to ignore the header line which begins with a "#"
 
@@ -50,22 +42,19 @@ for ln in args.filename:
         # print (ln)
 
         lnsplit = ln.strip("\t").split("\t")
-        tax_id=lnsplit[0]
-        GeneID=lnsplit[1]
-        Symbol=lnsplit[2]
-        Synonyms=lnsplit[4]
-        Synlist=Synonyms.split("|")
+        tax_id = lnsplit[0]
+        GeneID = lnsplit[1]
+        Symbol = lnsplit[2]
+        Synonyms = lnsplit[4]
+        Synlist = Synonyms.split("|")
 
-        lnMCsplit=ln_mixed_case.strip("\t").split("\t")
-        lnMCTaxId=lnMCsplit[0]
-        lnMCGID=lnMCsplit[1]
-        lnMCSymbol=lnMCsplit[2]
-        lnMCSyn=lnMCsplit[4]
-        lnMCDESCRIPTION=lnMCsplit[8]
-        lnMcSynlist=lnMCSyn.split("|")
-
-
-
+        lnMCsplit = ln_mixed_case.strip("\t").split("\t")
+        lnMCTaxId = lnMCsplit[0]
+        lnMCGID = lnMCsplit[1]
+        lnMCSymbol = lnMCsplit[2]
+        lnMCSyn = lnMCsplit[4]
+        lnMCDESCRIPTION = lnMCsplit[8]
+        lnMcSynlist = lnMCSyn.split("|")
 
         # print(Synlist)
 
@@ -86,7 +75,7 @@ for ln in args.filename:
 
             else:
 
-                taxIDdict[tax_id]=1
+                taxIDdict[tax_id] = 1
 
         else:
             if 'taxon ignored' in taxIDdict.keys():
@@ -97,16 +86,15 @@ for ln in args.filename:
 
                 taxIDdict['taxon ignored'] = 1
 
-      #Syn Dict- Might be wrong- probably is
+        # Syn Dict- Might be wrong- probably is
         if tax_id in args.TAXID:
 
             for dicKey in Synlist:
 
-                if not dicKey==("-"):
+                if not dicKey == ("-"):
 
                     if dicKey in Synlistfull.keys():
-                        dicKey.lower()==dicKey
-
+                        dicKey.lower() == dicKey
 
                         Synlistfull[dicKey] += 1
 
@@ -115,28 +103,21 @@ for ln in args.filename:
 
                         Syncount += 1
 
-
-
-
-    #Symbol Dict
+        # Symbol Dict
         if tax_id in args.TAXID:
 
-                if Symbol in SymbolDict:
+            if Symbol in SymbolDict:
 
-                    SymbolDict[Symbol] += 1
+                SymbolDict[Symbol] += 1
 
-                else:
+            else:
 
-                    SymbolDict[Symbol] = 1
+                SymbolDict[Symbol] = 1
 
-                SymbCount += 1
-### actually works
+            SymbCount += 1
+        ### actually works
 
-
-
-
-
-    #GeneID Dict
+        # GeneID Dict
         if tax_id in args.TAXID:
 
             if GeneID in GeneDict:
@@ -145,49 +126,11 @@ for ln in args.filename:
             else:
                 GeneDict[GeneID] = 1
 
-            GeneCount+=1
-        # if tax_id in args.TAXID:
-        #     if lnMCDESCRIPTION in DesDict:
-        #         DesDict[lnMCDESCRIPTION]+=1
-        #     else:
-        #         DesDict[lnMCDESCRIPTION]=1
+            GeneCount += 1
+        if tax_id in args.TAXID:
+            lnMCDESCRIPTIONOut = lnMCDESCRIPTION
 
-
-
-# Matching keys in Synlist if in Symbollist
-for matchingKey in Synlistfull.keys():
-
-    if matchingKey in SymbolDict:
-        # for refrence that works: will not report on it if it does
-        # print('Error Repeat:', matchingKey)
-        del Synlistfull[matchingKey]
-
-# print("\t")
-# print("\t")
-for SynListkey, SynValue in Synlistfull.items():
-    if SynListkey in Synlistfull:
-        if SynValue>=2:
-
-            # print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
-            del Synlistfull[SynListkey]
 #
-# print("\t")
-# print("\t")
-
-# Gene Symbols unique check
-for Genekey,value in GeneDict.items():
-
-    if Genekey in GeneDict:
-
-        if value > 1:
-            # Should we keep one of the keys ?
-            # GeneKeyOneCount = {Genekey: 1}
-            # print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
-
-            del GeneDict[Genekey]
-            #Adds the key we deleted with a 1 count vs what it orginal had
-#
-#args.filename.close()
 
 #
 # # add a new fo loop like code line 31
@@ -207,107 +150,80 @@ for Genekey,value in GeneDict.items():
 
 args.filename.seek(0)
 for ln in args.filename:
-    print(ln)
+    # print(ln)
 
-# for ln in args.filename:
-#
-#
-#      for ln in args.filename:
-#
-#         #my_file.closed
-#
-#         if not ln.startswith('#'):
-#
-#         # Case Sensitive no:
-#             if not args.case_sensitive:
-#                 ln_mixed_case = ln
-#                 ln = ln.lower()
-#
-#                 lnsplit = ln.strip("\t").split("\t")
-#                 tax_id=lnsplit[0]
-#                 GeneID=lnsplit[1]
-#                 Symbol=lnsplit[2]
-#                 Synonyms=lnsplit[4]
-#                 Synlist=Synonyms.split("|")
-#
-#                 lnMCsplit=ln_mixed_case.strip("\t").split("\t")
-#                 lnMCTaxId=lnMCsplit[0]
-#                 lnMCGID=lnMCsplit[1]
-#                 lnMCSymbol=lnMCsplit[2]
-#                 lnMCSyn=lnMCsplit[4]
-#                 lnMCDESCRIPTION=lnMCsplit[8]
-#                 lnMcSynlist=lnMCSyn.split("|")
-#             print(lnMCSymbol)
+    for ln in args.filename:
 
+        # my_file.closed
 
+        if not ln.startswith('#'):
 
+            # Case Sensitive no:
+            if not args.case_sensitive:
+                ln_mixed_case = ln
+                ln = ln.lower()
 
+                lnsplit = ln.strip("\t").split("\t")
+                tax_id = lnsplit[0]
+                GeneID = lnsplit[1]
+                Symbol = lnsplit[2]
+                Synonyms = lnsplit[4]
+                Synlist = Synonyms.split("|")
 
+                lnMCsplit = ln_mixed_case.strip("\t").split("\t")
+                lnMCTaxId = lnMCsplit[0]
+                lnMCGID = lnMCsplit[1]
+                lnMCSymbol = lnMCsplit[2]
+                lnMCSyn = lnMCsplit[4]
+                lnMCDESCRIPTION = lnMCsplit[8]
+                lnMcSynlist = lnMCSyn.split("|")
+                semi = ";"
 
-            # # else:
-            # #     continue
-            #
-            #
-            # if lnMCSymbol in SymbolDict.keys():
-            #     if lnMCSymbol in SymbolDict:
-            #         print(True)
-            #
-            #
-            #
-            # if lnMCGID.lower() in GeneDict.keys():
-            #     if lnMCGID in GeneDict:
-            #
-            #         print(lnMCGID)
+                for matchingKey in Synlistfull.keys():
 
+                    if matchingKey in SymbolDict:
+                        # for refrence that works: will not report on it if it does
+                        # print('Error Repeat:', matchingKey)
+                        del Synlistfull[matchingKey]
+                    if lnMCSymbol.lower() in SymbolDict:
+                        lnMCSymbol
 
-# print(lnMcSynlist)
+                for SynListkey, SynValue in Synlistfull.items():
+                    if SynListkey in Synlistfull:
+                        if SynValue >= 2:
+                            # print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
+                            del Synlistfull[SynListkey]
 
+                for Genekey, value in GeneDict.items():
 
+                    if Genekey in GeneDict:
 
+                        if value > 1:
+                            # Should we keep one of the keys ?
+                            # GeneKeyOneCount = {Genekey: 1}
+                            # print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
 
+                            del GeneDict[Genekey]
+                    if lnMCGID.lower() in GeneDict.keys():
+                        if lnMCGID in GeneDict:
+                            lnMCGID
 
+            if tax_id in args.TAXID:
+                for SynlistOutput in lnMcSynlist:
 
-
-
-
-
-
+                    if SynlistOutput.lower() in Synlistfull:
+                        lnMcSynlist
 
 
+                        lnMcSynlistnew=semi.join(lnMcSynlist)
+                        # print(lnMcSynlistnew)
 
 
-
-# # ######### output file
-# # zip(GeneDict,lnMCDESCRIPTION,Synlistfull2)
-# with open('outputfile.txt','w+') as fileoutput:
-#     outputGenelist=': '.join(GeneDict.keys())
-#     outputDescription = ': '.join(DesDict.keys())
-#
-#     outputSynlist = ': '.join(Synlistfull2.keys())
-#     # print(outputSynlist)
-#     for item in fileoutput:
-#         outputGenelist,outputDescription,outputSynlist= item.strip().split('\t')
-#         outputGenelist.appemd(outputGenelist)
-#         outputDescription.append(outputDescription)
-#         outputSynlist.appemd(outputSynlist)
-#     print(outputGenelist + "\t" + outputDescription + "\t" + outputSynlist + '\n')
-#
-#     fileoutput.write(outputGenelist+"\t"+outputDescription+"\t"+outputSynlist+'\n')
-#
-# fileoutput.close()
-#Not sure if I did this correctly
-
-
-# with open('outputfil','w+') as fileoutpu:
-#     fileoutpu.write('Hi')
-# fileoutpu.close()
+# print(lnMcSynlistnew)
 
 
 
-
-
-
-
+print(lnMCGID + "\t" +lnMCSymbol + "\t" + lnMCDESCRIPTIONOut + "\t" + lnMcSynlistnew + '\n')            #
 
 
 
