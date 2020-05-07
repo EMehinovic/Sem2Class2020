@@ -178,7 +178,7 @@ for ln in args.filename:
                 lnMCDESCRIPTION = lnMCsplit[8]
                 lnMcSynlist = lnMCSyn.split("|")
                 semi = ";"
-
+            if tax_id in args.TAXID:
                 for matchingKey in Synlistfull.keys():
 
                     if matchingKey in SymbolDict:
@@ -204,26 +204,20 @@ for ln in args.filename:
                             # print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
 
                             del GeneDict[Genekey]
-                    if lnMCGID.lower() in GeneDict.keys():
-                        if lnMCGID in GeneDict:
-                            lnMCGID
+                        if lnMCGID.lower() in GeneDict.keys():
+                            if lnMCGID in GeneDict:
+                                lnMCGID=lnMCGID
 
-            if tax_id in args.TAXID:
+
                 for SynlistOutput in lnMcSynlist:
 
                     if SynlistOutput.lower() in Synlistfull:
-                        lnMcSynlist
+
 
 
                         lnMcSynlistnew=semi.join(lnMcSynlist)
                         # print(lnMcSynlistnew)
-
-
-# print(lnMcSynlistnew)
-
-
-
-print(lnMCGID + "\t" +lnMCSymbol + "\t" + lnMCDESCRIPTIONOut + "\t" + lnMcSynlistnew + '\n')            #
+                        print(lnMCGID + "\t" +lnMCSymbol + "\t" + lnMCDESCRIPTIONOut + "\t" + lnMcSynlistnew + '\n')
 
 
 
