@@ -102,6 +102,8 @@ for ln in args.filename:
                         Synlistfull[dicKey] = 1
 
                         Syncount += 1
+        #                else:
+        #                    Synlistfull["-"] = 1
 
         # Symbol Dict
         if tax_id in args.TAXID:
@@ -135,7 +137,7 @@ for ln in args.filename:
 #
 # # add a new fo loop like code line 31
 #
-# # TODO 10)
+# # DONE)
 # #   Logic:
 # #   go through the file again line by line
 # #   use mixed case values for output, do the comparisons to the exsisting dictionaries insensitivly
@@ -150,79 +152,75 @@ for ln in args.filename:
 
 args.filename.seek(0)
 for ln in args.filename:
-    # print(ln)
 
-    for ln in args.filename:
+    #    for ln in args.filename:
 
-        # my_file.closed
+    if not ln.startswith('#'):
 
-        if not ln.startswith('#'):
+        # Case Sensitive no:
+        if not args.case_sensitive:
+            ln_mixed_case = ln
+            ln = ln.lower()
 
-            # Case Sensitive no:
-            if not args.case_sensitive:
-                ln_mixed_case = ln
-                ln = ln.lower()
+            lnsplit = ln.strip("\t").split("\t")
+            tax_id = lnsplit[0]
+            GeneID = lnsplit[1]
+            Symbol = lnsplit[2]
+            Synonyms = lnsplit[4]
+            Synlist = Synonyms.split("|")
 
-                lnsplit = ln.strip("\t").split("\t")
-                tax_id = lnsplit[0]
-                GeneID = lnsplit[1]
-                Symbol = lnsplit[2]
-                Synonyms = lnsplit[4]
-                Synlist = Synonyms.split("|")
+            lnMCsplit = ln_mixed_case.strip("\t").split("\t")
+            lnMCTaxId = lnMCsplit[0]
+            lnMCGID = lnMCsplit[1]
+            lnMCSymbol = lnMCsplit[2]
+            lnMCSyn = lnMCsplit[4]
+            lnMCDESCRIPTION = lnMCsplit[8]
+            lnMcSynlist = lnMCSyn.split("|")
+            semi = ";"
 
-                lnMCsplit = ln_mixed_case.strip("\t").split("\t")
-                lnMCTaxId = lnMCsplit[0]
-                lnMCGID = lnMCsplit[1]
-                lnMCSymbol = lnMCsplit[2]
-                lnMCSyn = lnMCsplit[4]
-                lnMCDESCRIPTION = lnMCsplit[8]
-                lnMcSynlist = lnMCSyn.split("|")
-                semi = ";"
-            if tax_id in args.TAXID:
-                for matchingKey in Synlistfull.keys():
+            lnMcSynlistnew = []
 
-                    if matchingKey in SymbolDict:
-                        # for refrence that works: will not report on it if it does
-                        # print('Error Repeat:', matchingKey)
-                        del Synlistfull[matchingKey]
-                    if lnMCSymbol.lower() in SymbolDict:
-                        lnMCSymbol
+        if tax_id in args.TAXID:
+            for matchingKey in Synlistfull.keys():
 
-                for SynListkey, SynValue in Synlistfull.items():
-                    if SynListkey in Synlistfull:
-                        if SynValue >= 2:
-                            # print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
-                            del Synlistfull[SynListkey]
+                if matchingKey in SymbolDict:
+                    # for refrence that works: will not report on it if it does
+                    # print('Error Repeat:', matchingKey)
+                    del Synlistfull[matchingKey]
+                if lnMCSymbol.lower() in SymbolDict:
+                    lnMCSymbol
 
-                for Genekey, value in GeneDict.items():
+            for SynListkey, SynValue in Synlistfull.items():
+                if SynListkey in Synlistfull:
+                    if SynValue >= 2:
+                        # print ('Error Duplicate SynKey:', SynListkey,'Found',SynValue,'Times')
+                        del Synlistfull[SynListkey]
 
-                    if Genekey in GeneDict:
+            for Genekey, value in GeneDict.items():
 
-                        if value > 1:
-                            # Should we keep one of the keys ?
-                            # GeneKeyOneCount = {Genekey: 1}
-                            # print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
+                if Genekey in GeneDict:
 
-                            del GeneDict[Genekey]
-                        if lnMCGID.lower() in GeneDict.keys():
-                            if lnMCGID in GeneDict:
-                                lnMCGID=lnMCGID
+                    if value > 1:
+                        # Should we keep one of the keys ?
+                        # GeneKeyOneCount = {Genekey: 1}
+                        # print ('Error Duplicate Key:', Genekey,'Found',value,'Times')
 
+                        del GeneDict[Genekey]
+                    if lnMCGID.lower() in GeneDict.keys():
+                        if lnMCGID in GeneDict:
+                            lnMCGID = lnMCGID
 
-                for SynlistOutput in lnMcSynlist:
+            for SynlistOutput in lnMcSynlist:
 
-                    if SynlistOutput.lower() in Synlistfull:
+                if SynlistOutput.lower() in Synlistfull:
+                    lnMcSynlistnew = semi.join(lnMcSynlist)
+                    lnMcSynlistnew
+                    # print(lnMcSynlistnew)
 
-
-
-                        lnMcSynlistnew=semi.join(lnMcSynlist)
-                        # print(lnMcSynlistnew)
-                        print(lnMCGID + "\t" +lnMCSymbol + "\t" + lnMCDESCRIPTIONOut + "\t" + lnMcSynlistnew + '\n')
-
-
-
-
-
+            if (lnMcSynlistnew):
+                print(lnMCGID + "\t" + lnMCSymbol + "\t" + lnMCDESCRIPTION + "\t" + lnMcSynlistnew)
+            else:
+                print(lnMCGID + "\t" + lnMCSymbol + "\t" + lnMCDESCRIPTION + "\t")
 
 # DONE: 5)
 #   Add code to populate symbolDict

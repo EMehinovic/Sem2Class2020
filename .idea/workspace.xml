@@ -345,14 +345,20 @@
       <option name="project" value="LOCAL" />
       <updated>1588837300914</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="05/6/20v3">
+      <created>1588838736940</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1588838736940</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="04/10/2020v2" />
     <MESSAGE value="04/10/2020v3" />
     <MESSAGE value="04/10/2020v4" />
     <MESSAGE value="04/10/2020v5" />
@@ -377,7 +383,8 @@
     <MESSAGE value="05/4/20v2-issues" />
     <MESSAGE value="05/4/20v3-issues" />
     <MESSAGE value="05/6/20v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="05/6/20v2" />
+    <MESSAGE value="05/6/20v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="05/6/20v3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="28" y="84" key="#Inspections" timestamp="1586396076774">
@@ -404,10 +411,10 @@
     </state>
     <state x="804" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588641292504" />
     <state x="804" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.830@0.23.1440.830" timestamp="1584485625239" />
-    <state x="309" y="52" key="CommitChangelistDialog2" timestamp="1588837300691">
+    <state x="309" y="52" key="CommitChangelistDialog2" timestamp="1588838736753">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="309" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588837300691" />
+    <state x="309" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588838736753" />
     <state x="412" y="7" key="CommitChangelistDialog2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1587154395273" />
     <state x="309" y="25" key="CommitChangelistDialog2/0.23.1440.797@0.23.1440.797" timestamp="1586541317126" />
     <state x="309" y="28" key="CommitChangelistDialog2/0.23.1440.800@0.23.1440.800" timestamp="1586547951802" />
@@ -534,10 +541,10 @@
       <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="0" y="80" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1585756861252" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588837310389">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588838744559">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588837310389" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588838744559" />
     <state x="427" y="229" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1588707130399" />
     <state x="320" y="191" key="Vcs.Push.Dialog.v2/0.23.1440.797@0.23.1440.797" timestamp="1586541324452" />
     <state x="320" y="192" key="Vcs.Push.Dialog.v2/0.23.1440.800@0.23.1440.800" timestamp="1586547960749" />
@@ -583,10 +590,10 @@
     <state x="161" y="264" key="git4idea.merge.GitPullDialog/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1588706398316" />
     <state x="121" y="221" key="git4idea.merge.GitPullDialog/0.23.1440.810@0.23.1440.810" timestamp="1586844767751" />
     <state x="121" y="222" key="git4idea.merge.GitPullDialog/0.23.1440.814@0.23.1440.814" timestamp="1587090593617" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1588709156821">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1588966106543">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1588709156821" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1588966106543" />
     <state x="173" y="890" width="670" height="599" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1586512509453" />
     <state x="556" y="131" width="670" height="619" key="search.everywhere.popup/0.23.1440.824@0.23.1440.824" timestamp="1586491262251" />
   </component>
